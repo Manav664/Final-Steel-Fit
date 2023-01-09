@@ -1,14 +1,15 @@
+{% load static %}
 <!DOCTYPE HTML>
 <!--
 	Steelfit enigineering Co
-	By Dwij Makvana
+	By Dwij Makvana, Het Shah
 -->
 <html>
 	<head>
 		<title>Hemispherical - Steelfit Engineering Co.</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}" />
 	</head>
 	<body class="is-preload">
 
@@ -18,23 +19,16 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-		<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Steelfit</strong> Engineering Co.</a>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="#" class="icon brands fa-mail-bulk"><span class="label">Mail</span></a></li>
-									</ul>
-								</header>
+						<!-- Header -->
+						{% include "header.html" %}
+
 							<!-- Content -->
 								<section>
 									<header class="main">
 										<h1>Hemisherical</h1>
 									</header>
 
-									<span class="image main"><img src="images/319.jpg" height="500" width="600" alt="" /></span>
+									<span class="image main"><img src="{% static 'images/319.jpg' %}" height="500" width="600" alt="" /></span>
 
 									<table width="786" border="0">
   <tr>
@@ -65,41 +59,7 @@
 						<div class="inner">
 
 							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li><a href="generic.html">About Us</a></li>
-										<li><a href="elements.html">Products</a></li>
-										<li><a href="Infrastructure.html">Infrastructure</a></li>
-										<li><a href="Quality.html">Quality</a></li>
-										<li><a href="photogallery.html">Photo Gallery</a></li>
-										<li><a href="Inspection.html">Inspection Agency</a></li>
-
-									</ul>
-								</nav>
-
-
-						<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Get in touch</h2>
-									</header>
-									<p></p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="mailto :steelfit@rediffmail.com ">steelfit@rediffmail.com </br>info@steelfitengg.com</a></li>
-										<li class="icon solid fa-phone"><a href="tel:+91-9825042746" class="Blondie">+ 91 - 98250 42746</br>+ 91 - 79 - 25840861</a></li>
-										<li class="icon solid fa-home"><a href="https://goo.gl/maps/huybviZ6ETg2G3PU7"> Plot No.2917, Phase-IV,G.I.D.C;Industrial Estate, <br />
-										Vatva, Ahmedabad-382445. Gujarat, INDIA</a></li>
-									</ul>
-								</section>
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Steelfit. All rights reserved</p>
-								</footer>
+							{% include "navbar.html" %}
 
 						</div>
 					</div>
@@ -107,11 +67,7 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		{% include "scripts.html" %}
 
 	</body>
 </html>

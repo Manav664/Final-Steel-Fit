@@ -2,15 +2,15 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('', index),
-    path('elements/', elements),
-    path('dishend/', dishend),
-    path('generic/', generic),
-    path('hemi_spherical/', hemi),
-    path('infrastructure/', infra),
-    path('inspection/', inspection),
-    path('photogallery/', photogallery),
-    path('pipecaps/', pipecaps),
-    path('quality/', quality),
-    path('tori/', tori),
+    path('', index, name='index'),
+    path('elements/', elements, name='elements'),
+    path('dishend/', dishend, name='dishend'),
+    path('generic/', generic, name='generic'),
+    path('hemi_spherical/', hemi, name='hemi'),
+    path('infrastructure/', infra, name='infra'),
+    path('inspection/', inspection, name='inspection'),
+    path('photogallery/', photogallery, name='photogallery'),
+    path('pipecaps/', pipecaps, name='pipecaps'),
+    path('quality/', quality, name='quality'),
+    path('tori/', tori, name='tori'),
 ]
