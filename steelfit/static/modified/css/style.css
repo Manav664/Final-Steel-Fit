@@ -1,0 +1,212 @@
+:root{
+    --color-white: #f3f3f3;
+    --color-red: #FF2B06;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* overflow-x: hidden; */
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body{
+    overflow-x: hidden;
+}
+.navbar{
+    background-color: #000000;  
+}
+.navbar-brand{
+    margin-left:3rem;
+
+}
+#navbar{
+    margin-right: 4rem;
+    justify-content: flex-end;
+}
+
+.navbar .nav-link {
+    /* color: #fff !important; */
+    font-weight: 700;
+    font-size: clamp(5rem, 3vw+1rem, 10rem);
+    color: #000000;
+
+}
+.navbar-light .navbar-nav .nav-link {
+    text-align: right;
+    color: #000000;
+    padding-right: 2rem;
+}
+
+/* .navbar-brand {
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+  } */
+
+#introCarousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item.active {
+height: 100vh;
+}
+
+.carousel-item:nth-child(1) {
+background-image: url('img/tedx2021.png');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+}
+
+.carousel-item:nth-child(2) {
+background-image: url('img/tedx2021.png');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+}
+
+.carousel-item:nth-child(3) {
+background-image: url('img/tedx2021.png');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+}
+.carousel-item:nth-child(4) {
+    background-image: url('img/tedx2021.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.carousel-item:nth-child(5) {
+    background-image: url('img/tedx2021.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    }
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+#introCarousel {
+    margin-top: -58.59px;
+}
+}
+
+.footer-logo{
+    height: min(8rem,12vw);
+}
+
+
+#fCarousel .carousel-inner .carousel-item,#fCarousel .carousel-inner .carousel-item.active {
+    height: 50vh;  
+}
+
+#fCarousel>*{
+    height: 50vh;
+    border-radius: 20px;
+}
+
+#sCarousel .carousel-inner .carousel-item,#sCarousel .carousel-inner .carousel-item.active {
+    height: 50vh;  
+}
+
+#sCarousel>*{
+    height: 50vh;
+    border-radius: 20px;
+}
+.static-img{
+    height: 50vh;
+}
+
+.input-group{
+    width: min(100%,18rem);
+}
+.input-group .form-control{
+    width: max(10vw,100%);
+}
+
+@media (max-width: 767px){
+    .row.mb-4 .col-md-4.gx-5:first-of-type{
+        margin-bottom: 2rem;
+    }    
+    .row.mb-4 .col-md-4.gx-5:last-of-type{
+        margin-top: 2rem;
+    }
+}
+
+.gradient-custom { background: radial-gradient(50% 123.47% at 50% 50%, #00FF94 0%, #720059
+    100%), linear-gradient(121.28deg, #669600 0%, #FF0000 100%), linear-gradient(360deg,
+    #0029FF 0%, #8FFF00 100%), radial-gradient(100% 164.72% at 100% 100%, #6100FF 0%, #00FF57
+    100%), radial-gradient(100% 148.07% at 0% 0%, #FFF500 0%, #51D500 100%);
+    background-blend-mode: screen, color-dodge, overlay, difference, normal; }
+    
+
+/* a .btn-primary.focus, .btn-primary:focus, .btn-primary:hover {
+    overflow-y: hidden !important;
+} */
+#usp .img-fluid{
+    /* margin: 0 auto; */
+    /* align-self: center; */
+    /* height: 50vh; */
+    width: 70%;
+    align-content: center;
+    transform: translate(20%, 0);
+}
+
+#applycarousel,
+#applycarousel .carousel-inner,
+#applycarousel .carousel-item,
+#applycarousel .carousel-item.active {
+    height: 15vh;
+}
+.btn{
+    background-color: var(--color-red);
+}
+.btn-primary.focus,.btn-primary:hover {
+    color: #fff;
+    background-color: var(--color-rí);
+}
+@media (max-width:990px){
+    .card-body {
+        text-align: center;
+    }
+    .card-body .d-flex{
+        flex-direction: column;
+    }
+    .card-body .d-flex .px-3{
+        padding: 0 0 0 0 !important;
+    }
+    .card-body .d-flex .soc-flex{
+        flex-direction: row;
+    }
+
+    .card .card-body .d-flex:nth-of-type(3n),.card .card-body .d-flex:nth-of-type(4n){
+        flex-direction: column-reverse !important;
+    }
+    
+    #cat-check.p-5.my-5{
+        padding:1rem !important;
+        margin:1rem 0 !important;
+    }
+
+    #cat-check >*{
+        font-size: 1rem;
+    }
+    #lat-feed >*{
+        display: none;
+    }
+    /* .input-group >*{
+        display: block !important;
+        width:2px !important;
+    } */
+    .input-group{
+        margin-bottom: 2rem;
+    }
+    .input-group .btn{
+        width: max(10vw,100%);
+    }
+}
