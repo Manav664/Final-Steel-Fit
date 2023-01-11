@@ -33,3 +33,6 @@ def quality(request):
 
 def tori(request):
     return render(request, "Tori.html")
+
+def ourclients(request):
+    return render(request, "OurClients.html")

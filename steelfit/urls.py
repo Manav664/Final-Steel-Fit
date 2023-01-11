@@ -13,4 +13,5 @@ urlpatterns = [
     path('pipecaps/', pipecaps, name='pipecaps'),
     path('quality/', quality, name='quality'),
     path('tori/', tori, name='tori'),
+    path('OurClients/',ourclients,name='ourclients')
 ]
