@@ -3,6 +3,7 @@ const form = document.getElementById("input-form");
 const inputField = document.getElementById("input-field");
 const conversation = document.getElementById("conversation");
 var hi_done = "false"
+var specifications = ""
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -26,6 +27,7 @@ form.addEventListener("submit", (event) => {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         const response = JSON.parse(xhr.responseText).response; // extract the response from the JSON object
         hi_done = JSON.parse(xhr.responseText).hi_done;
+        specifications = JSON.parse(xhr.responseText).specifications;
         // Add the chatbot's response to the conversation
         const chatbotMessage = document.createElement("div");
         chatbotMessage.classList.add("chatbot-message");
@@ -37,7 +39,7 @@ form.addEventListener("submit", (event) => {
       }
     };
 
-    xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done);
+    xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done + "&specifications=" + specifications);
     xhr.send();
   }
 });
