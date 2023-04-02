@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Floating Window Example</title>
+	<style>
+		/* Style for the floating button */
+		.floating-button {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			z-index: 999;
+			background-color: #3498db;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+		}
+
+		/* Style for the floating window */
+		.floating-window {
+			position: fixed;
+			bottom: 80px;
+			right: 20px;
+			z-index: 998;
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+			background-color: white;
+			overflow-y: auto;
+			display: none; /* Hide the window by default */
+			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+		}
+	</style>
+</head>
+<body>
+	<!-- The floating button -->
+	<div class="floating-button" onclick="toggleFloatingWindow()">Chat with Bot</div>
+
+	<!-- The floating window -->
+	<div class="floating-window" id="floating-window">
+		<iframe src="test.html" style="width:1000%; height:1000%;"></iframe>
+	</div>
+
+	<script>
+		// Toggle the visibility of the floating window
+		function toggleFloatingWindow() {
+			var floatingWindow = document.getElementById("floating-window");
+			if (floatingWindow.style.display === "none") {
+				floatingWindow.style.display = "block";
+			} else {
+				floatingWindow.style.display = "none";
+			}
+		}
+	</script>
+</body>
+</html>

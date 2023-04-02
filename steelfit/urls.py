@@ -13,5 +13,7 @@ urlpatterns = [
     path('pipecaps/', pipecaps, name='pipecaps'),
     path('quality/', quality, name='quality'),
     path('tori/', tori, name='tori'),
-    path('OurClients/',ourclients,name='ourclients')
+    path('OurClients/',ourclients,name='ourclients'),
+    path('chatbot/',chatbot,name='chatbot'),
+    path('chatbot-response/', chatbot_response, name='chatbot_response')
 ]
