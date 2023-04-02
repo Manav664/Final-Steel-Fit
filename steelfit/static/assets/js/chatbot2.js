@@ -5,6 +5,11 @@ const conversation = document.getElementById("conversation");
 var hi_done = "false"
 var specifications = ""
 
+function scrollConversationToBottom() {
+  const conversation = document.getElementById("conversation");
+  conversation.scrollTop = conversation.scrollHeight;
+}
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const user_input = inputField.value.trim();
@@ -19,6 +24,8 @@ form.addEventListener("submit", (event) => {
   message.classList.add('chatbot-message', 'user-message');
   message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${user_input}</p>`;
   conversation.appendChild(message);
+
+  scrollConversationToBottom();
 
   if (user_input) {
     // Send an AJAX request to the chatbot_response URL
@@ -37,6 +44,7 @@ form.addEventListener("submit", (event) => {
         chatbotMessage.appendChild(chatbotText);
         conversation.appendChild(chatbotMessage);
       }
+      scrollConversationToBottom();
     };
 
     xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done + "&specifications=" + specifications);
