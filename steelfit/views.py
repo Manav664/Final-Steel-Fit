@@ -97,6 +97,19 @@ def fnc_for_company(all_vars):
         all_vars["user_company"] = all_vars['user_input']
     return all_vars
 
+def fnc_for_phone(all_vars):
+    if 'yes' in all_vars["user_input"]:
+        all_vars["phone_enterd"] = "true"
+        all_vars["response"] = "Phone Number noted. Now product type."
+    
+    elif 'no' in all_vars["user_input"]:
+        all_vars["response"] = "Enter you phone number again"
+    
+    else:
+        all_vars["response"] = f"Is {all_vars['user_input']} your correct phone number?"
+        all_vars["user_phone"] = all_vars['user_input']
+    return all_vars
+
 
 
 def chatbot_response(request):
@@ -107,6 +120,8 @@ def chatbot_response(request):
     user_name = request.GET.get('user_name', '').lower()
     company_enterd = request.GET.get('company_enterd', '').lower()
     user_company = request.GET.get('user_company', '').lower()
+    phone_enterd = request.GET.get('phone_enterd', '').lower()
+    user_phone = request.GET.get('user_phone', '').lower()
 
 
     all_vars = {'response': '',
@@ -116,7 +131,9 @@ def chatbot_response(request):
                 "name_enterd":name_enterd,
                 'user_name':user_name,
                 "company_enterd":company_enterd,
-                'user_company':user_company}
+                'user_company':user_company,
+                "phone_enterd":phone_enterd,
+                'user_phone':user_phone}
 
     if all_vars["user_input"] == 'hi':
         all_vars['response'] = 'Hello! Please Enter your name.'
@@ -126,6 +143,8 @@ def chatbot_response(request):
         all_vars['user_name'] = ""
         all_vars['company_enterd'] = "false"
         all_vars['user_company'] = ""
+        all_vars['phone_enterd'] = "false"
+        all_vars['user_phone'] = ""
         return JsonResponse(all_vars)
     
     if all_vars["hi_done"] == "true":
@@ -134,7 +153,11 @@ def chatbot_response(request):
 
         if all_vars["name_enterd"] == "true":
             if all_vars["company_enterd"] == "true":
-                all_vars["response"] = "Everything noted!"
+
+                if all_vars['phone_enterd'] == "true":
+                    all_vars["response"] = "Everything noted!"
+                else:
+                    all_vars=fnc_for_phone(all_vars)
             else:
                 all_vars = fnc_for_company(all_vars)
             

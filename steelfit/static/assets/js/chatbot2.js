@@ -8,6 +8,8 @@ var name_enterd = "false"
 var user_name = ""
 var company_enterd = "false"
 var user_company = ""
+var phone_enterd = "false"
+var user_phone = ""
 
 function scrollConversationToBottom() {
   const conversation = document.getElementById("conversation");
@@ -43,6 +45,8 @@ form.addEventListener("submit", (event) => {
         user_name = JSON.parse(xhr.responseText).user_name;
         company_enterd = JSON.parse(xhr.responseText).company_enterd;
         user_company = JSON.parse(xhr.responseText).user_company;
+        phone_enterd = JSON.parse(xhr.responseText).phone_enterd;
+        user_phone = JSON.parse(xhr.responseText).user_phone;
 
         // Add the chatbot's response to the conversation
         const chatbotMessage = document.createElement("div");
@@ -56,7 +60,7 @@ form.addEventListener("submit", (event) => {
       scrollConversationToBottom();
     };
 
-    xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done + "&specifications=" + specifications + "&name_enterd=" + name_enterd + "&user_name=" + user_name + "&company_enterd=" + company_enterd + "&user_company=" + user_company);
+    xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done + "&specifications=" + specifications + "&name_enterd=" + name_enterd + "&user_name=" + user_name + "&company_enterd=" + company_enterd + "&user_company=" + user_company + "&phone_enterd=" + phone_enterd + "&user_phone=" + user_phone);
     xhr.send();
   }
 });
