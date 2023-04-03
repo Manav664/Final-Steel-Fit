@@ -49,13 +49,16 @@ form.addEventListener("submit", (event) => {
         user_phone = JSON.parse(xhr.responseText).user_phone;
 
         // Add the chatbot's response to the conversation
+        for (let i = 0; i < response.length; i++) {
+        
         const chatbotMessage = document.createElement("div");
         chatbotMessage.classList.add("chatbot-message");
         const chatbotText = document.createElement("p");
         chatbotText.classList.add("chatbot-text");
-        chatbotText.textContent = response;
+        chatbotText.textContent = response[i];
         chatbotMessage.appendChild(chatbotText);
         conversation.appendChild(chatbotMessage);
+        }
       }
       scrollConversationToBottom();
     };

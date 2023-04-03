@@ -74,39 +74,39 @@ def send_email(subject, body, recipient, sender_email, sender_password):
 def fnc_for_name(all_vars):
     if 'yes' in all_vars["user_input"]:
         all_vars["name_enterd"] = "true"
-        all_vars["response"] = "Name noted. Now enter your company name."
+        all_vars["response"] = ["Name noted. Now enter your company name."]
     
     elif 'no' in all_vars["user_input"]:
-        all_vars["response"] = "Enter you name again"
+        all_vars["response"] = ["Enter you name again"]
     
     else:
-        all_vars["response"] = f"Is {all_vars['user_input']} your correct name?"
+        all_vars["response"] = [f"Is {all_vars['user_input']} your correct name?"]
         all_vars["user_name"] = all_vars['user_input']
     return all_vars
 
 def fnc_for_company(all_vars):
     if 'yes' in all_vars["user_input"]:
         all_vars["company_enterd"] = "true"
-        all_vars["response"] = "company noted. Now enter your phone number."
+        all_vars["response"] = ["company noted. Now enter your phone number."]
     
     elif 'no' in all_vars["user_input"]:
-        all_vars["response"] = "Enter you company name again"
+        all_vars["response"] = ["Enter you company name again"]
     
     else:
-        all_vars["response"] = f"Is {all_vars['user_input']} your correct name of your company?"
+        all_vars["response"] = [f"Is {all_vars['user_input']} your correct name of your company?"]
         all_vars["user_company"] = all_vars['user_input']
     return all_vars
 
 def fnc_for_phone(all_vars):
     if 'yes' in all_vars["user_input"]:
         all_vars["phone_enterd"] = "true"
-        all_vars["response"] = "Phone Number noted. Now product type."
+        all_vars["response"] = ["Phone Number noted. Now product type."]
     
     elif 'no' in all_vars["user_input"]:
-        all_vars["response"] = "Enter you phone number again"
+        all_vars["response"] = ["Enter you phone number again"]
     
     else:
-        all_vars["response"] = f"Is {all_vars['user_input']} your correct phone number?"
+        all_vars["response"] = [f"Is {all_vars['user_input']} your correct phone number?"]
         all_vars["user_phone"] = all_vars['user_input']
     return all_vars
 
@@ -124,7 +124,7 @@ def chatbot_response(request):
     user_phone = request.GET.get('user_phone', '').lower()
 
 
-    all_vars = {'response': '',
+    all_vars = {'response': [''],
                 'user_input': user_input,
                 'hi_done':hi_done,
                 'specifications':specifications,
@@ -136,7 +136,7 @@ def chatbot_response(request):
                 'user_phone':user_phone}
 
     if all_vars["user_input"] == 'hi':
-        all_vars['response'] = 'Hello! Please Enter your name.'
+        all_vars['response'] = ['Hello!', 'Please Enter your name.']
         all_vars['hi_done'] = "true"
         all_vars['specifications'] = ""
         all_vars['name_enterd'] = "false"
@@ -155,7 +155,7 @@ def chatbot_response(request):
             if all_vars["company_enterd"] == "true":
 
                 if all_vars['phone_enterd'] == "true":
-                    all_vars["response"] = "Everything noted!"
+                    all_vars["response"] = ["Everything noted!"]
                 else:
                     all_vars=fnc_for_phone(all_vars)
             else:
@@ -188,7 +188,7 @@ def chatbot_response(request):
         #     return JsonResponse(response)
 
     else:
-        all_vars["response"] = "please type hi to start the conversation"
+        all_vars["response"] = ["please type hi to start the conversation"]
 
     return JsonResponse(all_vars)
 
