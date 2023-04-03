@@ -4,6 +4,10 @@ const inputField = document.getElementById("input-field");
 const conversation = document.getElementById("conversation");
 var hi_done = "false"
 var specifications = ""
+var name_enterd = "false"
+var user_name = ""
+var company_enterd = "false"
+var user_company = ""
 
 function scrollConversationToBottom() {
   const conversation = document.getElementById("conversation");
@@ -35,6 +39,11 @@ form.addEventListener("submit", (event) => {
         const response = JSON.parse(xhr.responseText).response; // extract the response from the JSON object
         hi_done = JSON.parse(xhr.responseText).hi_done;
         specifications = JSON.parse(xhr.responseText).specifications;
+        name_enterd = JSON.parse(xhr.responseText).name_enterd;
+        user_name = JSON.parse(xhr.responseText).user_name;
+        company_enterd = JSON.parse(xhr.responseText).company_enterd;
+        user_company = JSON.parse(xhr.responseText).user_company;
+
         // Add the chatbot's response to the conversation
         const chatbotMessage = document.createElement("div");
         chatbotMessage.classList.add("chatbot-message");
@@ -47,7 +56,7 @@ form.addEventListener("submit", (event) => {
       scrollConversationToBottom();
     };
 
-    xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done + "&specifications=" + specifications);
+    xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done + "&specifications=" + specifications + "&name_enterd=" + name_enterd + "&user_name=" + user_name + "&company_enterd=" + company_enterd + "&user_company=" + user_company);
     xhr.send();
   }
 });

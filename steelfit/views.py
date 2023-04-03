@@ -69,44 +69,103 @@ def send_email(subject, body, recipient, sender_email, sender_password):
     server.sendmail(sender_email, recipient, message.as_string())
     server.quit()
 
+
+
+def fnc_for_name(all_vars):
+    if 'yes' in all_vars["user_input"]:
+        all_vars["name_enterd"] = "true"
+        all_vars["response"] = "Name noted. Now enter your company name."
+    
+    elif 'no' in all_vars["user_input"]:
+        all_vars["response"] = "Enter you name again"
+    
+    else:
+        all_vars["response"] = f"Is {all_vars['user_input']} your correct name?"
+        all_vars["user_name"] = all_vars['user_input']
+    return all_vars
+
+def fnc_for_company(all_vars):
+    if 'yes' in all_vars["user_input"]:
+        all_vars["company_enterd"] = "true"
+        all_vars["response"] = "company noted. Now enter your phone number."
+    
+    elif 'no' in all_vars["user_input"]:
+        all_vars["response"] = "Enter you company name again"
+    
+    else:
+        all_vars["response"] = f"Is {all_vars['user_input']} your correct name of your company?"
+        all_vars["user_company"] = all_vars['user_input']
+    return all_vars
+
+
+
 def chatbot_response(request):
     user_input = request.GET.get('user_input', '').lower()
-    print(request.GET.get('hi_done',''))
-    hi_done = request.GET.get('hi_done','') == 'true'
+    hi_done = request.GET.get('hi_done','')
     specifications = request.GET.get('specifications', '').lower()
+    name_enterd = request.GET.get('name_enterd', '').lower()
+    user_name = request.GET.get('user_name', '').lower()
+    company_enterd = request.GET.get('company_enterd', '').lower()
+    user_company = request.GET.get('user_company', '').lower()
 
-    if user_input == 'hi':
-        response = {'response': 'Hello! Enter your specifications.',
-                    'hi_done':"true",
-                    'specifications':specifications}
-        return JsonResponse(response)
+
+    all_vars = {'response': '',
+                'user_input': user_input,
+                'hi_done':hi_done,
+                'specifications':specifications,
+                "name_enterd":name_enterd,
+                'user_name':user_name,
+                "company_enterd":company_enterd,
+                'user_company':user_company}
+
+    if all_vars["user_input"] == 'hi':
+        all_vars['response'] = 'Hello! Please Enter your name.'
+        all_vars['hi_done'] = "true"
+        all_vars['specifications'] = ""
+        all_vars['name_enterd'] = "false"
+        all_vars['user_name'] = ""
+        all_vars['company_enterd'] = "false"
+        all_vars['user_company'] = ""
+        return JsonResponse(all_vars)
     
-    if hi_done:
-        
-        if 'yes' in user_input:
-            response = {'response': 'Specifications noted.',
-                    'hi_done':"true",
-                    'specifications':specifications}
-            send_email("User Specifications", specifications, "19bce062@nirmauni.ac.in", "19bce062@nirmauni.ac.in", "oegpmovihbpdvmev")
-            return JsonResponse(response)
-        
-        elif 'no' in user_input:
-            specifications = ""
-            response = {'response': 'Enter your specification again.',
-                    'hi_done':"true",
-                    'specifications':specifications}
-            return JsonResponse(response)
+    if all_vars["hi_done"] == "true":
+
+        print(all_vars["name_enterd"])
+
+        if all_vars["name_enterd"] == "true":
+            if all_vars["company_enterd"] == "true":
+                all_vars["response"] = "Everything noted!"
+            else:
+                all_vars = fnc_for_company(all_vars)
+            
         
         else:
-            specifications = user_input
-            response = {'response': f'Is this your specification? "{user_input}"',
-                    'hi_done':"true",
-                    'specifications':specifications}
-            return JsonResponse(response)
+            all_vars = fnc_for_name(all_vars)
+        
+        # if 'yes' in user_input:
+        #     response = {'response': 'Specifications noted.',
+        #             'hi_done':"true",
+        #             'specifications':specifications}
+        #     send_email("User Specifications", specifications, "steel.fit123@gmail.com", "steel.fit123@gmail.com", "bndknnudyeshzodt")
+        #     send_email("User Specifications", specifications, "dwijmakvana@gmail.com", "steel.fit123@gmail.com", "bndknnudyeshzodt")
+        #     return JsonResponse(response)
+        
+        # elif 'no' in user_input:
+        #     specifications = ""
+        #     response = {'response': 'Enter your specification again.',
+        #             'hi_done':"true",
+        #             'specifications':specifications}
+        #     return JsonResponse(response)
+        
+        # else:
+        #     specifications = user_input
+        #     response = {'response': f'Is this your specification? "{user_input}"',
+        #             'hi_done':"true",
+        #             'specifications':specifications}
+        #     return JsonResponse(response)
 
     else:
-        response = {'response': 'I did not understand.',
-                    'hi_done':"false",
-                    'specifications':specifications}
-        return JsonResponse(response)
+        all_vars["response"] = "please type hi to start the conversation"
+
+    return JsonResponse(all_vars)
 
