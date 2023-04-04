@@ -2,7 +2,7 @@ const form = document.getElementById("input-form");
 const inputField = document.getElementById("input-field");
 const conversation = document.getElementById("conversation");
 var hi_done = "false"
-var specifications = ""
+var specifications = "false"
 var name_enterd = "false"
 var user_name = ""
 var company_enterd = "false"
@@ -11,6 +11,8 @@ var phone_enterd = "false"
 var user_phone = ""
 var product_enterd = "false"
 var user_product = ""
+var specification_enterd = "false"
+var user_specification = ""
 
 function scrollConversationToBottom() {
   const conversation = document.getElementById("conversation");
@@ -83,6 +85,8 @@ form.addEventListener("submit", (event) => {
         user_phone = JSON.parse(xhr.responseText).user_phone;
         product_enterd = JSON.parse(xhr.responseText).product_enterd;
         user_product = JSON.parse(xhr.responseText).user_product;
+        specification_enterd = JSON.parse(xhr.responseText).specification_enterd;
+        user_specification = JSON.parse(xhr.responseText).user_specification;
 
         // Add the chatbot's response to the conversation
         for (let i = 0; i < response.length; i++) {
@@ -112,7 +116,7 @@ form.addEventListener("submit", (event) => {
       scrollConversationToBottom();
     };
 
-    xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done + "&specifications=" + specifications + "&name_enterd=" + name_enterd + "&user_name=" + user_name + "&company_enterd=" + company_enterd + "&user_company=" + user_company + "&phone_enterd=" + phone_enterd + "&user_phone=" + user_phone + "&product_enterd=" + product_enterd + "&user_product=" + user_product);
+    xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done + "&specifications=" + specifications + "&name_enterd=" + name_enterd + "&user_name=" + user_name + "&company_enterd=" + company_enterd + "&user_company=" + user_company + "&phone_enterd=" + phone_enterd + "&user_phone=" + user_phone + "&product_enterd=" + product_enterd + "&user_product=" + user_product + "&specification_enterd=" + specification_enterd + "&user_specification=" + user_specification);
     xhr.send();
   }
 });

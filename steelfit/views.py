@@ -111,6 +111,38 @@ def fnc_for_phone(all_vars):
         all_vars["user_phone"] = all_vars['user_input']
     return all_vars
 
+def fnc_for_specification(all_vars):
+    if 'yes' in all_vars["user_input"]:
+        all_vars["specification_enterd"] = "true"
+        out = "\nName: " + all_vars["user_name"] + "\nCompany Name: " + all_vars["user_company"] + "\nPhone Number: " + all_vars["user_phone"] + "\nProduct Wanted: " + all_vars["user_product"] + "\nSpecifications of other product: " + all_vars["user_specification"]   
+        send_email("User Specifications", out, "steel.fit123@gmail.com", "steel.fit123@gmail.com", "bndknnudyeshzodt")
+        all_vars = reset_vars(all_vars)
+        all_vars["response"] = ["Everything Noted and sent",
+                                "Please enter Hi to restart the conversation"]
+    
+    elif 'no' in all_vars["user_input"]:
+        all_vars["response"] = ["Enter you specification again"]
+    
+    else:
+        all_vars["response"] = [f"Is {all_vars['user_input']} your correct specification?"]
+        all_vars["user_specification"] = all_vars['user_input']
+    return all_vars
+
+def reset_vars(all_vars):
+    all_vars['response'] = ['Hello!', 'Please Enter your name.']
+    all_vars['hi_done'] = "false"
+    all_vars['specifications'] = "false"
+    all_vars['name_enterd'] = "false"
+    all_vars['user_name'] = ""
+    all_vars['company_enterd'] = "false"
+    all_vars['user_company'] = ""
+    all_vars['phone_enterd'] = "false"
+    all_vars['user_phone'] = ""
+    all_vars['product_enterd'] = "false"
+    all_vars['user_product'] = ""
+    all_vars['specification_enterd'] = "false"
+    all_vars['user_specification'] = ""
+    return all_vars
 
 
 def chatbot_response(request):
@@ -125,6 +157,8 @@ def chatbot_response(request):
     user_phone = request.GET.get('user_phone', '').lower()
     product_enterd = request.GET.get('product_enterd', '').lower()
     user_product = request.GET.get('user_product', '').lower()
+    specification_enterd = request.GET.get('specification_enterd', '').lower()
+    user_specification = request.GET.get('user_specification', '').lower()
 
     all_vars = {'response': [''],
                 'user_input': user_input,
@@ -137,25 +171,16 @@ def chatbot_response(request):
                 "phone_enterd":phone_enterd,
                 'user_phone':user_phone,
                 "product_enterd":product_enterd,
-                'user_product':user_product}
+                'user_product':user_product,
+                "specification_enterd":specification_enterd,
+                'user_specification':user_specification}
 
     if all_vars["user_input"] == 'hi':
-        all_vars['response'] = ['Hello!', 'Please Enter your name.']
+        all_vars = reset_vars(all_vars)
         all_vars['hi_done'] = "true"
-        all_vars['specifications'] = ""
-        all_vars['name_enterd'] = "false"
-        all_vars['user_name'] = ""
-        all_vars['company_enterd'] = "false"
-        all_vars['user_company'] = ""
-        all_vars['phone_enterd'] = "false"
-        all_vars['user_phone'] = ""
-        all_vars['product_enterd'] = "false"
-        all_vars['user_product'] = ""
         return JsonResponse(all_vars)
     
     if all_vars["hi_done"] == "true":
-
-        print(all_vars["name_enterd"])
 
         if all_vars["name_enterd"] == "true":
             if all_vars["company_enterd"] == "true":
@@ -165,14 +190,28 @@ def chatbot_response(request):
                     if all_vars['product_enterd'] == "true":
                         
                         if all_vars["user_input"] == "yes":
-                            all_vars["response"] = ["Everything Noted!"]
-                        else:
-                            all_vars["response"] = ["Please choose the product type again!"]
-                            all_vars["product_enterd"] = "false"
-
-
+                            pass
+                        elif all_vars["user_input"] == "no":
+                            if all_vars['specifications'] == "false":
+                                all_vars["response"] = ["Please choose the product type again!"]
+                                all_vars["product_enterd"] = "false"
                     else:
                         pass
+                    
+                    if all_vars['product_enterd'] == "true":
+                        if all_vars["user_product"] == "others" and all_vars['specification_enterd']=="false":
+                            if all_vars['specifications'] == "false":
+                                all_vars['response'] = ["Please Enter your specification for other product"]
+                                all_vars['specifications'] = "true"
+                            else:
+                                all_vars = fnc_for_specification(all_vars)
+                        else:
+                            out = "\nName: " + all_vars["user_name"] + "\nCompany Name: " + all_vars["user_company"] + "\nPhone Number: " + all_vars["user_phone"] + "\nProduct Wanted: " + all_vars["user_product"] + "\nSpecifications of other product: " + all_vars["user_specification"]   
+                            send_email("User Specifications", out, "steel.fit123@gmail.com", "steel.fit123@gmail.com", "bndknnudyeshzodt")
+                            all_vars = reset_vars(all_vars)
+                            all_vars["response"] = ["Everything Noted and sent",
+                                                    "Please enter Hi to restart the conversation"]
+                            
                 else:
                     all_vars=fnc_for_phone(all_vars)
             else:
@@ -181,31 +220,8 @@ def chatbot_response(request):
         
         else:
             all_vars = fnc_for_name(all_vars)
-        
-        # if 'yes' in user_input:
-        #     response = {'response': 'Specifications noted.',
-        #             'hi_done':"true",
-        #             'specifications':specifications}
-        #     send_email("User Specifications", specifications, "steel.fit123@gmail.com", "steel.fit123@gmail.com", "bndknnudyeshzodt")
-        #     send_email("User Specifications", specifications, "dwijmakvana@gmail.com", "steel.fit123@gmail.com", "bndknnudyeshzodt")
-        #     return JsonResponse(response)
-        
-        # elif 'no' in user_input:
-        #     specifications = ""
-        #     response = {'response': 'Enter your specification again.',
-        #             'hi_done':"true",
-        #             'specifications':specifications}
-        #     return JsonResponse(response)
-        
-        # else:
-        #     specifications = user_input
-        #     response = {'response': f'Is this your specification? "{user_input}"',
-        #             'hi_done':"true",
-        #             'specifications':specifications}
-        #     return JsonResponse(response)
 
     else:
         all_vars["response"] = ["please type hi to start the conversation"]
 
     return JsonResponse(all_vars)
-
