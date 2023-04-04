@@ -1,4 +1,3 @@
-// chatbot.js
 const form = document.getElementById("input-form");
 const inputField = document.getElementById("input-field");
 const conversation = document.getElementById("conversation");
@@ -10,10 +9,45 @@ var company_enterd = "false"
 var user_company = ""
 var phone_enterd = "false"
 var user_phone = ""
+var product_enterd = "false"
+var user_product = ""
 
 function scrollConversationToBottom() {
   const conversation = document.getElementById("conversation");
   conversation.scrollTop = conversation.scrollHeight;
+}
+
+function createButton(textContent) {
+  console.log("Button creation is being called");
+  
+  const button = document.createElement("button");
+  button.id = "my-button";
+  button.style.padding = "10px 20px";
+  button.style.border = "none";
+  button.style.borderRadius = "5px";
+  button.style.background = "#4CAF50";
+  button.style.color = "white";
+  button.style.fontWeight = "bold";
+  button.textContent = textContent;
+  button.addEventListener("click", function() {
+    user_product = textContent;
+    product_enterd = "true";
+    const chatbotMessage = document.createElement("div");
+    chatbotMessage.classList.add("chatbot-message");
+    const chatbotText = document.createElement("p");
+    chatbotText.classList.add("chatbot-text");
+    chatbotText.textContent = "Is " + user_product + " is your product type?";
+    chatbotMessage.appendChild(chatbotText);
+    conversation.appendChild(chatbotMessage);
+    scrollConversationToBottom();
+  });
+
+  const buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("chatbot-message");
+  buttonContainer.style.paddingBottom = "20px";
+  buttonContainer.appendChild(button);
+  
+  conversation.appendChild(buttonContainer);
 }
 
 form.addEventListener("submit", (event) => {
@@ -47,6 +81,8 @@ form.addEventListener("submit", (event) => {
         user_company = JSON.parse(xhr.responseText).user_company;
         phone_enterd = JSON.parse(xhr.responseText).phone_enterd;
         user_phone = JSON.parse(xhr.responseText).user_phone;
+        product_enterd = JSON.parse(xhr.responseText).product_enterd;
+        user_product = JSON.parse(xhr.responseText).user_product;
 
         // Add the chatbot's response to the conversation
         for (let i = 0; i < response.length; i++) {
@@ -59,11 +95,24 @@ form.addEventListener("submit", (event) => {
         chatbotMessage.appendChild(chatbotText);
         conversation.appendChild(chatbotMessage);
         }
+        scrollConversationToBottom();
+
+        if (phone_enterd == "true" && product_enterd=="false")
+
+        {
+          let products = ["item1", "item2", "item3","item4","others"];
+          for (let i = 0; i < products.length; i++)
+          {
+            createButton(products[i]);
+            scrollConversationToBottom();
+          }
+        
+      }
       }
       scrollConversationToBottom();
     };
 
-    xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done + "&specifications=" + specifications + "&name_enterd=" + name_enterd + "&user_name=" + user_name + "&company_enterd=" + company_enterd + "&user_company=" + user_company + "&phone_enterd=" + phone_enterd + "&user_phone=" + user_phone);
+    xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done + "&specifications=" + specifications + "&name_enterd=" + name_enterd + "&user_name=" + user_name + "&company_enterd=" + company_enterd + "&user_company=" + user_company + "&phone_enterd=" + phone_enterd + "&user_phone=" + user_phone + "&product_enterd=" + product_enterd + "&user_product=" + user_product);
     xhr.send();
   }
 });

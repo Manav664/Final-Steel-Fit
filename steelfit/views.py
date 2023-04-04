@@ -100,7 +100,8 @@ def fnc_for_company(all_vars):
 def fnc_for_phone(all_vars):
     if 'yes' in all_vars["user_input"]:
         all_vars["phone_enterd"] = "true"
-        all_vars["response"] = ["Phone Number noted. Now product type."]
+        all_vars["response"] = ["Phone Number noted",
+                                "Now choose the product type from below."]
     
     elif 'no' in all_vars["user_input"]:
         all_vars["response"] = ["Enter you phone number again"]
@@ -122,7 +123,8 @@ def chatbot_response(request):
     user_company = request.GET.get('user_company', '').lower()
     phone_enterd = request.GET.get('phone_enterd', '').lower()
     user_phone = request.GET.get('user_phone', '').lower()
-
+    product_enterd = request.GET.get('product_enterd', '').lower()
+    user_product = request.GET.get('user_product', '').lower()
 
     all_vars = {'response': [''],
                 'user_input': user_input,
@@ -133,7 +135,9 @@ def chatbot_response(request):
                 "company_enterd":company_enterd,
                 'user_company':user_company,
                 "phone_enterd":phone_enterd,
-                'user_phone':user_phone}
+                'user_phone':user_phone,
+                "product_enterd":product_enterd,
+                'user_product':user_product}
 
     if all_vars["user_input"] == 'hi':
         all_vars['response'] = ['Hello!', 'Please Enter your name.']
@@ -145,6 +149,8 @@ def chatbot_response(request):
         all_vars['user_company'] = ""
         all_vars['phone_enterd'] = "false"
         all_vars['user_phone'] = ""
+        all_vars['product_enterd'] = "false"
+        all_vars['user_product'] = ""
         return JsonResponse(all_vars)
     
     if all_vars["hi_done"] == "true":
@@ -155,7 +161,18 @@ def chatbot_response(request):
             if all_vars["company_enterd"] == "true":
 
                 if all_vars['phone_enterd'] == "true":
-                    all_vars["response"] = ["Everything noted!"]
+
+                    if all_vars['product_enterd'] == "true":
+                        
+                        if all_vars["user_input"] == "yes":
+                            all_vars["response"] = ["Everything Noted!"]
+                        else:
+                            all_vars["response"] = ["Please choose the product type again!"]
+                            all_vars["product_enterd"] = "false"
+
+
+                    else:
+                        pass
                 else:
                     all_vars=fnc_for_phone(all_vars)
             else:
