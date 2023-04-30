@@ -13,6 +13,7 @@ var product_enterd = "false"
 var user_product = ""
 var specification_enterd = "false"
 var user_specification = ""
+var everything_enterd = "false"
 
 function scrollConversationToBottom() {
   const conversation = document.getElementById("conversation");
@@ -38,10 +39,50 @@ function createButton(textContent) {
     chatbotMessage.classList.add("chatbot-message");
     const chatbotText = document.createElement("p");
     chatbotText.classList.add("chatbot-text");
-    chatbotText.textContent = "Is " + user_product + " is your product type?";
+    chatbotText.textContent = "Your Product type noted";
     chatbotMessage.appendChild(chatbotText);
     conversation.appendChild(chatbotMessage);
     scrollConversationToBottom();
+
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText).response; // extract the response from the JSON object
+        hi_done = JSON.parse(xhr.responseText).hi_done;
+        specifications = JSON.parse(xhr.responseText).specifications;
+        name_enterd = JSON.parse(xhr.responseText).name_enterd;
+        user_name = JSON.parse(xhr.responseText).user_name;
+        company_enterd = JSON.parse(xhr.responseText).company_enterd;
+        user_company = JSON.parse(xhr.responseText).user_company;
+        phone_enterd = JSON.parse(xhr.responseText).phone_enterd;
+        user_phone = JSON.parse(xhr.responseText).user_phone;
+        product_enterd = JSON.parse(xhr.responseText).product_enterd;
+        user_product = JSON.parse(xhr.responseText).user_product;
+        specification_enterd = JSON.parse(xhr.responseText).specification_enterd;
+        user_specification = JSON.parse(xhr.responseText).user_specification;
+        everything_enterd = JSON.parse(xhr.responseText).everything_enterd;
+        
+        // Add the chatbot's response to the conversation
+        for (let i = 0; i < response.length; i++) {
+        
+        const chatbotMessage = document.createElement("div");
+        chatbotMessage.classList.add("chatbot-message");
+        const chatbotText = document.createElement("p");
+        chatbotText.classList.add("chatbot-text");
+        chatbotText.textContent = response[i];
+        chatbotMessage.appendChild(chatbotText);
+        conversation.appendChild(chatbotMessage);
+        }
+        scrollConversationToBottom();
+
+        
+      }
+      scrollConversationToBottom();
+    };
+
+    xhr.open("GET", "/chatbot-response/?user_input=" + "" + "&hi_done=" + hi_done + "&specifications=" + specifications + "&name_enterd=" + name_enterd + "&user_name=" + user_name + "&company_enterd=" + company_enterd + "&user_company=" + user_company + "&phone_enterd=" + phone_enterd + "&user_phone=" + user_phone + "&product_enterd=" + product_enterd + "&user_product=" + user_product + "&specification_enterd=" + specification_enterd + "&user_specification=" + user_specification + "&everything_enterd=" + everything_enterd);
+    xhr.send();
+    
   });
 
   const buttonContainer = document.createElement("div");
@@ -87,7 +128,8 @@ form.addEventListener("submit", (event) => {
         user_product = JSON.parse(xhr.responseText).user_product;
         specification_enterd = JSON.parse(xhr.responseText).specification_enterd;
         user_specification = JSON.parse(xhr.responseText).user_specification;
-
+        everything_enterd = JSON.parse(xhr.responseText).everything_enterd;
+        
         // Add the chatbot's response to the conversation
         for (let i = 0; i < response.length; i++) {
         
@@ -116,11 +158,7 @@ form.addEventListener("submit", (event) => {
       scrollConversationToBottom();
     };
 
-    xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done + "&specifications=" + specifications + "&name_enterd=" + name_enterd + "&user_name=" + user_name + "&company_enterd=" + company_enterd + "&user_company=" + user_company + "&phone_enterd=" + phone_enterd + "&user_phone=" + user_phone + "&product_enterd=" + product_enterd + "&user_product=" + user_product + "&specification_enterd=" + specification_enterd + "&user_specification=" + user_specification);
+    xhr.open("GET", "/chatbot-response/?user_input=" + user_input + "&hi_done=" + hi_done + "&specifications=" + specifications + "&name_enterd=" + name_enterd + "&user_name=" + user_name + "&company_enterd=" + company_enterd + "&user_company=" + user_company + "&phone_enterd=" + phone_enterd + "&user_phone=" + user_phone + "&product_enterd=" + product_enterd + "&user_product=" + user_product + "&specification_enterd=" + specification_enterd + "&user_specification=" + user_specification + "&everything_enterd=" + everything_enterd);
     xhr.send();
   }
 });
-
-
-
-

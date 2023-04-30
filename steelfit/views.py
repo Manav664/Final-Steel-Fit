@@ -72,60 +72,24 @@ def send_email(subject, body, recipient, sender_email, sender_password):
 
 
 def fnc_for_name(all_vars):
-    if 'yes' in all_vars["user_input"]:
-        all_vars["name_enterd"] = "true"
-        all_vars["response"] = ["Name noted. Now enter your company name."]
-    
-    elif 'no' in all_vars["user_input"]:
-        all_vars["response"] = ["Enter you name again"]
-    
-    else:
-        all_vars["response"] = [f"Is {all_vars['user_input']} your correct name?"]
-        all_vars["user_name"] = all_vars['user_input']
+    all_vars["user_name"] = all_vars['user_input']
+    all_vars["name_enterd"] = "true"
+    all_vars["response"] = ["Name noted. Now enter your company name."]
     return all_vars
 
 def fnc_for_company(all_vars):
-    if 'yes' in all_vars["user_input"]:
-        all_vars["company_enterd"] = "true"
-        all_vars["response"] = ["company noted. Now enter your phone number."]
-    
-    elif 'no' in all_vars["user_input"]:
-        all_vars["response"] = ["Enter you company name again"]
-    
-    else:
-        all_vars["response"] = [f"Is {all_vars['user_input']} your correct name of your company?"]
-        all_vars["user_company"] = all_vars['user_input']
+    all_vars["company_enterd"] = "true"
+    all_vars["user_company"] = all_vars['user_input']
+    all_vars["response"] = ["Your Company name noted. Now please enter your phone number."]
+        
     return all_vars
 
 def fnc_for_phone(all_vars):
-    if 'yes' in all_vars["user_input"]:
-        all_vars["phone_enterd"] = "true"
-        all_vars["response"] = ["Phone Number noted",
-                                "Now choose the product type from below."]
-    
-    elif 'no' in all_vars["user_input"]:
-        all_vars["response"] = ["Enter you phone number again"]
-    
-    else:
-        all_vars["response"] = [f"Is {all_vars['user_input']} your correct phone number?"]
-        all_vars["user_phone"] = all_vars['user_input']
-    return all_vars
-
-def fnc_for_specification(all_vars):
-    if 'yes' in all_vars["user_input"]:
-        all_vars["specification_enterd"] = "true"
-        out = "\nName: " + all_vars["user_name"] + "\nCompany Name: " + all_vars["user_company"] + "\nPhone Number: " + all_vars["user_phone"] + "\nProduct Wanted: " + all_vars["user_product"] + "\nSpecifications of other product: " + all_vars["user_specification"]   
-        send_email("User Specifications", out, "steel.fit123@gmail.com", "steel.fit123@gmail.com", "bndknnudyeshzodt")
-        all_vars = reset_vars(all_vars)
-        all_vars["response"] = ["Everything Noted and sent",
-                                "Please enter Hi to restart the conversation"]
-    
-    elif 'no' in all_vars["user_input"]:
-        all_vars["response"] = ["Enter you specification again"]
-    
-    else:
-        all_vars["response"] = [f"Is {all_vars['user_input']} your correct specification?"]
-        all_vars["user_specification"] = all_vars['user_input']
+    all_vars["phone_enterd"] = "true"
+    all_vars["user_phone"] = all_vars['user_input']
+    all_vars["response"] = ["Your Phone Number noted",
+                            "Now please choose the product type from below."]
+        
     return all_vars
 
 def reset_vars(all_vars):
@@ -142,8 +106,22 @@ def reset_vars(all_vars):
     all_vars['user_product'] = ""
     all_vars['specification_enterd'] = "false"
     all_vars['user_specification'] = ""
+    all_vars['everything_enterd'] = "false"
     return all_vars
 
+def note_info_and_send_mail(all_vars):
+    all_vars["everything_enterd"] = "true"
+    out = "\nName: " + all_vars["user_name"] + "\nCompany Name: " + all_vars["user_company"] + "\nPhone Number: " + all_vars["user_phone"] + "\nProduct Wanted: " + all_vars["user_product"] + "\nSpecifications of other product: " + all_vars["user_specification"]   
+    if 'yes' in all_vars["user_input"]:
+        all_vars = reset_vars(all_vars)
+        send_email("User Specifications", out, "steel.fit123@gmail.com", "steel.fit123@gmail.com", "bndknnudyeshzodt")
+        all_vars['response'] = ["Everything Noted and email was sent to owner describing your requirements","Please Enter hi to restart the conversation"]
+    elif 'no' in all_vars["user_input"]:
+        all_vars = reset_vars(all_vars)
+        all_vars['hi_done'] = "true"
+    else:
+        all_vars['response'] = ["Below is information stated by you",out,"Is information is completely correct?"]
+    return all_vars
 
 def chatbot_response(request):
     user_input = request.GET.get('user_input', '').lower()
@@ -159,6 +137,7 @@ def chatbot_response(request):
     user_product = request.GET.get('user_product', '').lower()
     specification_enterd = request.GET.get('specification_enterd', '').lower()
     user_specification = request.GET.get('user_specification', '').lower()
+    everything_enterd = request.GET.get('everything_enterd', '').lower()
 
     all_vars = {'response': [''],
                 'user_input': user_input,
@@ -173,7 +152,8 @@ def chatbot_response(request):
                 "product_enterd":product_enterd,
                 'user_product':user_product,
                 "specification_enterd":specification_enterd,
-                'user_specification':user_specification}
+                'user_specification':user_specification,
+                'everything_enterd':everything_enterd}
 
     if all_vars["user_input"] == 'hi':
         all_vars = reset_vars(all_vars)
@@ -188,30 +168,22 @@ def chatbot_response(request):
                 if all_vars['phone_enterd'] == "true":
 
                     if all_vars['product_enterd'] == "true":
-                        
-                        if all_vars["user_input"] == "yes":
-                            pass
-                        elif all_vars["user_input"] == "no":
-                            if all_vars['specifications'] == "false":
-                                all_vars["response"] = ["Please choose the product type again!"]
-                                all_vars["product_enterd"] = "false"
-                    else:
-                        pass
-                    
-                    if all_vars['product_enterd'] == "true":
-                        if all_vars["user_product"] == "others" and all_vars['specification_enterd']=="false":
-                            if all_vars['specifications'] == "false":
-                                all_vars['response'] = ["Please Enter your specification for other product"]
-                                all_vars['specifications'] = "true"
-                            else:
-                                all_vars = fnc_for_specification(all_vars)
+
+                        if specification_enterd == "true":
+                            if everything_enterd == "false":
+                                all_vars["user_specification"] = all_vars["user_input"]
+                            all_vars = note_info_and_send_mail(all_vars)  
                         else:
-                            out = "\nName: " + all_vars["user_name"] + "\nCompany Name: " + all_vars["user_company"] + "\nPhone Number: " + all_vars["user_phone"] + "\nProduct Wanted: " + all_vars["user_product"] + "\nSpecifications of other product: " + all_vars["user_specification"]   
-                            send_email("User Specifications", out, "steel.fit123@gmail.com", "steel.fit123@gmail.com", "bndknnudyeshzodt")
-                            all_vars = reset_vars(all_vars)
-                            all_vars["response"] = ["Everything Noted and sent",
-                                                    "Please enter Hi to restart the conversation"]
-                            
+                            specification_required = all_vars["user_product"] == "others"
+
+                            if specification_required:
+                                all_vars["response"] = ["Please enter you specifications"]
+                                all_vars["specification_enterd"] = "true"
+                            else:
+                                all_vars["user_specification"] = "no specifications"
+                                all_vars["specification_enterd"] = "true"
+                                all_vars = note_info_and_send_mail(all_vars)
+
                 else:
                     all_vars=fnc_for_phone(all_vars)
             else:
