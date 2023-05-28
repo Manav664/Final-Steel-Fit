@@ -114,7 +114,7 @@ def note_info_and_send_mail(all_vars):
     out = "\nName: " + all_vars["user_name"] + "\nCompany Name: " + all_vars["user_company"] + "\nPhone Number: " + all_vars["user_phone"] + "\nProduct Wanted: " + all_vars["user_product"] + "\nSpecifications of other product: " + all_vars["user_specification"]   
     if 'yes' in all_vars["user_input"]:
         all_vars = reset_vars(all_vars)
-        send_email("User Specifications", out, "steel.fit123@gmail.com", "steel.fit123@gmail.com", "bndknnudyeshzodt")
+        send_email("New Enquiry", out, "steel.fit123@gmail.com", "steel.fit123@gmail.com", "bndknnudyeshzodt")
         all_vars['response'] = ["Everything Noted and email was sent to owner describing your requirements","Please Enter hi to restart the conversation"]
     elif 'no' in all_vars["user_input"]:
         all_vars = reset_vars(all_vars)

@@ -146,7 +146,7 @@ form.addEventListener("submit", (event) => {
         if (phone_enterd == "true" && product_enterd=="false")
 
         {
-          let products = ["item1", "item2", "item3","item4","others"];
+          let products = ["Dish-end", "Pipe Caps", "Cones/Tri-Cones","Coil Bending","Swage Connection","others"];
           for (let i = 0; i < products.length; i++)
           {
             createButton(products[i]);
