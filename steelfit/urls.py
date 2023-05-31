@@ -3,7 +3,7 @@ from .views import *
 
 urlpatterns = [
     path('', index, name='index'),
-    path('elements/', elements, name='elements'),
+    path('gallery/', gallery, name='gallery'),
     path('dishend/', dishend, name='dishend'),
     path('generic/', generic, name='generic'),
     path('hemi_spherical/', hemi, name='hemi'),

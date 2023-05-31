@@ -1,38 +1,76 @@
-{% load static %}
-<!DOCTYPE HTML>
-<!--
-	Steelfit enigineering Co
-	By Dwij Makvana, Het Shah
+<!DOCTYPE html>
+<html lang="en">
 
--->
-<html>
-	<head>
-		<title>Dishend - Steelfit Engineering Co.</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}" />
-	</head>
-	<body class="is-preload">
+<head>
+	<title>SteelFit</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Steelfit engineering">
+	<meta name="author" content="Dwij Makvana">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+	<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/aos.css">
+	<link rel="stylesheet" href="css/jquery.exzoom.css">
+	<link rel="stylesheet" href="css/ionicons.min.css">
+	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="css/jquery.timepicker.css">
+	<link rel="stylesheet" href="css/flaticon.css">
+	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+<body>
+	<nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light position-absolute w-100" id="ftco-navbar top">
+		<div class="container">
+			<a href="index.html" class="navbar-brand text-light"><span>S</span>teel<span>F</span>it Engineering</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a href="index.html" class="nav-link text-light">Home</a></li>
+					<li class="nav-item"><a href="about.html" class="nav-link text-light">About</a></li>
+					<li class="nav-item"><a href="gallery.html" class="nav-link text-light">Gallery</a></li>
+					<li class="nav-item cta"><a href="product.html" class="nav-link text-light">Products</a></li>
+					<li class="nav-item"><a href="infrastructure.html" class="nav-link text-light">Infrastructure</a></li>
+					<li class="nav-item"><a href="certificates.html" class="nav-link text-light">Quality</a></li>
+					<li class="nav-item"><a href="clients.html" class="nav-link text-light">Our Clients</a></li>
+					<li class="nav-item"><a href="contact.html" class="nav-link text-light">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-							<!-- Header -->
-							{% include "header.html" %}
-
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Dishend</h1>
-									</header>
-
-									<span class="image main"><img src="{% static 'images/12.jpg' %}" height="500" width="600" alt="" /></span>
-
-<table width="786" border="0">
+  <!-- END nav -->
+  <div class="hero-wrap" style="background-image: url('img/12.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text d-flex align-items-end justify-content-center">
+        <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+          <div class="text">
+            <p class="breadcrumbs mb-2">
+              <span class="mr-2"><a href="index.html">Home</a></span>
+              <span>Contact</span>
+            </p>
+            <h1 class="mb-4 bread">Dish End</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<section class="ftco-section bg-light ftco-room">
+    <div class="text-center">
+        <h2>Dishend</h2>
+    </div>
+    <div class="container">
+<table width="100%" border="0">
   <tr>
     <td colspan="5" align="center" bgcolor="#999999" class="midal_text"><div align="center"><strong>DISHED ENDS </strong></div></td>
     </tr>
@@ -40,39 +78,53 @@
     <td colspan="5" bgcolor="#CCCCCC" class="midal_text"><div align="center"><strong>I. Dished ends by COLD SPINNING PROCESS By Imported Spinning Machine </strong></div></td>
     </tr>
   <tr>
-    <td width="51" align="center" bgcolor="#999999" class="contact_text"><div align="center"><strong>Sr.</strong></div></td>
-    <td width="213" align="center" bgcolor="#999999" class="contact_text"><strong>SIZE OF DISHED END.</strong></td>
-    <td width="229" align="center" bgcolor="#999999" class="contact_text"><strong>KNUCKLE RADIUS</strong></td>
-    <td width="123" align="center" bgcolor="#999999" class="contact_text"><strong>THICKNESS</strong></td>
-    <td width="148" align="center" bgcolor="#999999" class="contact_text"><strong>M.O.C</strong></td>
+    <td align="center" bgcolor="#999999" class="contact_text"><div align="center"><strong>Sr.</strong></div></td>
+    <td align="center" bgcolor="#999999" class="contact_text"><strong>SIZE OF DISHED END.</strong></td>
+    <td align="center" bgcolor="#999999" class="contact_text"><strong>KNUCKLE RADIUS</strong></td>
+    <td align="center" bgcolor="#999999" class="contact_text"><strong>THICKNESS</strong></td>
+    <td align="center" bgcolor="#999999" class="contact_text"><strong>M.O.C</strong></td>
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">01</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">900 to 1500mm OD.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">100 to 250mm</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">08 to 20mm Thk.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">C.S./S.S.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">900 to 2000 mm Dia.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">100 to 350mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">08 to 30mm Thk.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">02</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">1501 to  2000mm OD.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">100 to 300mm</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">08 to 22mm Thk.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">C.S./S.S.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">2001 to 3000 mm Dia.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">100 to 500mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">08 to 32 mm </td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">03</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">2001 to  2500mm OD.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">100 to 400mm</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">08 to 30mm Thk.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">C.S./S.S.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">3001 to 4500 mm Dia.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">150 to 550mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">08 to 32 mm </td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">04</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">2500 to  4000mm OD.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">900 to 2000 mm Dia</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">100 to 350mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">06 to 28 mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
+  </tr>
+    <tr>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">05</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">2001 to 3000 mm Dia</td>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">100 to 500mm</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">10 to 36mm Thk</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">C.S./S.S.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">08 to 30 mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
+  </tr>
+     <tr>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">06</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">3001 to 4500 mm Dia.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">150 to 550mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">08 to 30 mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
   </tr>
   <tr>
     <td colspan="5" align="center" bgcolor="#999999" class="midal_text"><div align="center"><strong>II.   Dished ends by Cold forming method (i.e. By point pressing       method ) </strong></div></td>
@@ -86,38 +138,38 @@
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">01</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">1000 to 1500mm OD.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">100 to 250mm</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">20 to 35mm Thk.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">C.S./S.S.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">1000 to 2500mm OD.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">100 to 425mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">16 to 65mm Thk.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">02</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">1501 to  2000mm OD.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">100 to 300mm</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">25 to 40mm Thk.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">C.S./S.S.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">2501 to 3500mm ID.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">150 to 600 mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">20 to 75 mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">03</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">2001 to  2500mm OD.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">100 to 400mm</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">28 to 45mm Thk.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">C.S./S.S.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">3501 to 4800mm ID.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">200 to 750 mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">20 to 75 mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">04</td>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">2501 to  4000mm OD</td>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">150 to 500mm</td>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">25 to 50mm Thk.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">C.S./S.S.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">05</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">4001 to  4800mm OD.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">200 to 720mm</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">25 to 50mm Thk.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">C.S./S.S.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">4801 to 6800mm ID.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">300 to 1100 mm</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">16 to 60 mm </td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
   </tr>
   <tr>
     <td colspan="5" align="center" bgcolor="#999999" class="contact_text"><strong>III.    Dished ends/Caps by Cold forming method with Die &amp; Punch</strong></td>
@@ -131,43 +183,122 @@
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">01</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">100 to 600mm OD.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">50 to 600mm OD.</td>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">15 to 100mm</td>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">03 to 35mm Thk</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">C.S./S.S.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">02</td>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">601 to 800mm OD.</td>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">50 to 150mm</td>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">04 to 40mm Thk</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">C.S./S.S.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
   </tr>
   <tr>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">03</td>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">801 to  1000mm OD.</td>
     <td align="center" bgcolor="#CCCCCC" class="contact_text">75 to 150mm</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">10 to 40mm Thk.</td>
-    <td align="center" bgcolor="#CCCCCC" class="contact_text">C.S./S.S.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">05 to 40mm Thk.</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
+  </tr>
+     <td colspan="5" align="center" bgcolor="#999999" class="contact_text"><strong>IV. Hemi-spherical Dished ends in Crown & petals construction by Cold forming method</strong></td>
+    </tr>
+  <tr>
+    <td align="center" bgcolor="#999999" class="contact_text"><strong>Sr.</strong></td>
+    <td align="center" bgcolor="#999999" class="contact_text"><strong>SIZE OF DISHED END.</strong></td>
+    <td align="center" bgcolor="#999999" class="contact_text"><strong>KNUCKLE RADIUS</strong></td>
+    <td align="center" bgcolor="#999999" class="contact_text"><strong>THICKNESS</strong></td>
+    <td align="center" bgcolor="#999999" class="contact_text"><strong>M.O.C </strong></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">01</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">600 to 8000mm Dia. </td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">---</td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">06 to 75 mm </td>
+    <td align="center" bgcolor="#CCCCCC" class="contact_text">CS/MS/AS/SS</td>
   </tr>
 </table>
+    </div>
+</section>
 
+	<footer class="ftco-footer ftco-bg-dark ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Steelfit Engineering </h2>
+						<p align="justify">At STEELFIT ENGINEERING CO, we are committed to delivering high-quality products and services that meet our client's unique needs. With our expertise in manufacturing and supplying various industrial products, we aim to be a reliable partner to our clients in achieving their business goals. </p>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Have a Questions?</h2>
+						<div class="block-23 mb-3">
+							<ul class="ftco-footer__contact">
+								<li><span class="icon icon-map-marker"></span><span class="text">Ahmedabad, Gujarat</span>
+								</li>
+								<li><span class="icon icon-phone"></span><span class="text">+91 - 98250 42746</span>
+								</li>
+								<li><span class="icon icon-envelope"></span><span class="text">steelfit@gmail.com</span>
+								</li>
+							</ul>
+							<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-0">
+								<li class="ftco-animate"><a href="#"><span
+											class="icon-facebook"></span></a></li>
+								<li class="ftco-animate"><a href="#"><span
+											class="icon-instagram"></span></a></li>
+							</ul>
 						</div>
 					</div>
-
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-							<!-- Menu -->
-              {% include "navbar.html" %}
-						</div>
-					</div>
-
+				</div>
 			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> Created by - <a href="https://www.linkedin.com/in/dwij-makvana-a312891b4/"><u>Dwij Makvana</u></a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 
-		<!-- Scripts -->
-    {% include "scripts.html" %}
+	<a href="#top" id="back-to-top"><i class="icon-long-arrow-up"></i></a>
 
-	</body>
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#1fb6d1" /></svg></div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/jquery.mb.YTPlayer.min.js"></script>
+	<script src="js/jquery.exzoom.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<!-- // <script src="js/jquery.timepicker.min.js"></script> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> -->
+	<script src="js/parallax.min.js"></script>
+	<script src="js/scrollax.min.js"></script>
+
+  <!-- // <script src="js/jquery.timepicker.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> -->
+  <script src="js/parallax.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <!-- <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script> -->
+  <script src="js/main.js"></script>
+</body>
+
 </html>

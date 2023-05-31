@@ -1,262 +1,466 @@
-/*
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
-(function($) {
-
-	var	$window = $(window),
-		$head = $('head'),
-		$body = $('body');
-
-	// Breakpoints.
-		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
-			small:    [ '481px',   '736px'  ],
-			xsmall:   [ '361px',   '480px'  ],
-			xxsmall:  [ null,      '360px'  ],
-			'xlarge-to-max':    '(min-width: 1681px)',
-			'small-to-xlarge':  '(min-width: 481px) and (max-width: 1680px)'
-		});
-
-	// Stops animations/transitions until the page has ...
-
-		// ... loaded.
-			$window.on('load', function() {
-				window.setTimeout(function() {
-					$body.removeClass('is-preload');
-				}, 100);
-			});
-
-		// ... stopped resizing.
-			var resizeTimeout;
-
-			$window.on('resize', function() {
-
-				// Mark as resizing.
-					$body.addClass('is-resizing');
-
-				// Unmark after delay.
-					clearTimeout(resizeTimeout);
-
-					resizeTimeout = setTimeout(function() {
-						$body.removeClass('is-resizing');
-					}, 100);
-
-			});
-
-	// Fixes.
-
-		// Object fit images.
-			if (!browser.canUse('object-fit')
-			||	browser.name == 'safari')
-				$('.image.object').each(function() {
-
-					var $this = $(this),
-						$img = $this.children('img');
-
-					// Hide original image.
-						$img.css('opacity', '0');
-
-					// Set background.
-						$this
-							.css('background-image', 'url("' + $img.attr('src') + '")')
-							.css('background-size', $img.css('object-fit') ? $img.css('object-fit') : 'cover')
-							.css('background-position', $img.css('object-position') ? $img.css('object-position') : 'center');
-
-				});
-
-	// Sidebar.
-		var $sidebar = $('#sidebar'),
-			$sidebar_inner = $sidebar.children('.inner');
-
-		// Inactive by default on <= large.
-			breakpoints.on('<=large', function() {
-				$sidebar.addClass('inactive');
-			});
-
-			breakpoints.on('>large', function() {
-				$sidebar.removeClass('inactive');
-			});
-
-		// Hack: Workaround for Chrome/Android scrollbar position bug.
-			if (browser.os == 'android'
-			&&	browser.name == 'chrome')
-				$('<style>#sidebar .inner::-webkit-scrollbar { display: none; }</style>')
-					.appendTo($head);
-
-		// Toggle.
-			$('<a href="#sidebar" class="toggle">Toggle</a>')
-				.appendTo($sidebar)
-				.on('click', function(event) {
-
-					// Prevent default.
-						event.preventDefault();
-						event.stopPropagation();
-
-					// Toggle.
-						$sidebar.toggleClass('inactive');
-
-				});
-
-		// Events.
-
-			// Link clicks.
-				$sidebar.on('click', 'a', function(event) {
-
-					// >large? Bail.
-						if (breakpoints.active('>large'))
-							return;
-
-					// Vars.
-						var $a = $(this),
-							href = $a.attr('href'),
-							target = $a.attr('target');
-
-					// Prevent default.
-						event.preventDefault();
-						event.stopPropagation();
-
-					// Check URL.
-						if (!href || href == '#' || href == '')
-							return;
-
-					// Hide sidebar.
-						$sidebar.addClass('inactive');
-
-					// Redirect to href.
-						setTimeout(function() {
-
-							if (target == '_blank')
-								window.open(href);
-							else
-								window.location.href = href;
-
-						}, 500);
-
-				});
-
-			// Prevent certain events inside the panel from bubbling.
-				$sidebar.on('click touchend touchstart touchmove', function(event) {
-
-					// >large? Bail.
-						if (breakpoints.active('>large'))
-							return;
-
-					// Prevent propagation.
-						event.stopPropagation();
-
-				});
-
-			// Hide panel on body click/tap.
-				$body.on('click touchend', function(event) {
-
-					// >large? Bail.
-						if (breakpoints.active('>large'))
-							return;
-
-					// Deactivate.
-						$sidebar.addClass('inactive');
-
-				});
-
-		// Scroll lock.
-		// Note: If you do anything to change the height of the sidebar's content, be sure to
-		// trigger 'resize.sidebar-lock' on $window so stuff doesn't get out of sync.
-
-			$window.on('load.sidebar-lock', function() {
-
-				var sh, wh, st;
-
-				// Reset scroll position to 0 if it's 1.
-					if ($window.scrollTop() == 1)
-						$window.scrollTop(0);
-
-				$window
-					.on('scroll.sidebar-lock', function() {
-
-						var x, y;
-
-						// <=large? Bail.
-							if (breakpoints.active('<=large')) {
-
-								$sidebar_inner
-									.data('locked', 0)
-									.css('position', '')
-									.css('top', '');
-
-								return;
-
-							}
-
-						// Calculate positions.
-							x = Math.max(sh - wh, 0);
-							y = Math.max(0, $window.scrollTop() - x);
-
-						// Lock/unlock.
-							if ($sidebar_inner.data('locked') == 1) {
-
-								if (y <= 0)
-									$sidebar_inner
-										.data('locked', 0)
-										.css('position', '')
-										.css('top', '');
-								else
-									$sidebar_inner
-										.css('top', -1 * x);
-
-							}
-							else {
-
-								if (y > 0)
-									$sidebar_inner
-										.data('locked', 1)
-										.css('position', 'fixed')
-										.css('top', -1 * x);
-
-							}
-
-					})
-					.on('resize.sidebar-lock', function() {
-
-						// Calculate heights.
-							wh = $window.height();
-							sh = $sidebar_inner.outerHeight() + 30;
-
-						// Trigger scroll.
-							$window.trigger('scroll.sidebar-lock');
-
-					})
-					.trigger('resize.sidebar-lock');
-
-				});
-
-	// Menu.
-		var $menu = $('#menu'),
-			$menu_openers = $menu.children('ul').find('.opener');
-
-		// Openers.
-			$menu_openers.each(function() {
-
-				var $this = $(this);
-
-				$this.on('click', function(event) {
-
-					// Prevent default.
-						event.preventDefault();
-
-					// Toggle.
-						$menu_openers.not($this).removeClass('active');
-						$this.toggleClass('active');
-
-					// Trigger resize (sidebar lock).
-						$window.triggerHandler('resize.sidebar-lock');
-
-				});
-
-			});
+AOS.init({
+   duration: 800,
+   easing: "slide"
+});
+
+/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+// particlesJS.load("particles-js", "particles.json", function() {
+//    console.log("callback - particles.js config loaded");
+// });
+
+(function ($) {
+   "use strict";
+
+   var isMobile = {
+      Android: function () {
+         return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function () {
+         return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function () {
+         return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function () {
+         return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function () {
+         return navigator.userAgent.match(/IEMobile/i);
+      },
+      any: function () {
+         return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+      }
+   };
+
+   $(window).stellar({
+      responsive: true,
+      parallaxBackgrounds: true,
+      parallaxElements: true,
+      horizontalScrolling: false,
+      hideDistantElements: false,
+      scrollProperty: "scroll"
+   });
+
+   var fullHeight = function () {
+      $(".js-fullheight").css("height", $(window).height());
+      $(window).resize(function () {
+         $(".js-fullheight").css("height", $(window).height());
+      });
+   };
+   fullHeight();
+
+   // loader
+   var loader = function () {
+      setTimeout(function () {
+         if ($("#ftco-loader").length > 0) {
+            $("#ftco-loader").removeClass("show");
+         }
+      }, 1);
+   };
+   loader();
+
+   //SMOOTH SCROLL
+   $('a[href*="#"]')
+      //    // Remove links that don't actually link to anything
+      .not('[href="#"]')
+      .not('[href="#0"]').click(function (e) {
+         if (this.hash !== '') {
+            e.preventDefault();
+            const hash = this.hash;
+            $('html, body').animate({
+               scrollTop: $(hash).offset().top
+            },
+               1000
+            )
+         }
+      })
+
+   // Scrollax
+   $.Scrollax();
+
+   var carousel = function () {
+      $(".home-slider").owlCarousel({
+         loop: true,
+         autoplay: true,
+         margin: 0,
+         animateOut: "fadeOut",
+         animateIn: "fadeIn",
+         nav: false,
+         dots: false,
+         autoplayHoverPause: false,
+         items: 1,
+         navText: ["<span class='ion-md-arrow-back'></span>", "<span class='ion-chevron-right'></span>"],
+         responsive: {
+            0: {
+               items: 1
+            },
+            600: {
+               items: 1
+            },
+            1000: {
+               items: 1
+            }
+         }
+      });
+      $(".carousel-testimony").owlCarousel({
+         autoplay: true,
+         loop: true,
+         items: 1,
+         margin: 0,
+         stagePadding: 0,
+         nav: false,
+         navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+         responsive: {
+            0: {
+               items: 1
+            },
+            600: {
+               items: 1
+            },
+            1000: {
+               items: 1
+            }
+         }
+      });
+
+      $(".single-slider").owlCarousel({
+         animateOut: "fadeOut",
+         animateIn: "fadeIn",
+         autoplay: true,
+         loop: true,
+         items: 1,
+         margin: 0,
+         stagePadding: 0,
+         nav: true,
+         dots: true,
+         navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+         responsive: {
+            0: {
+               items: 1
+            },
+            600: {
+               items: 1
+            },
+            1000: {
+               items: 1
+            }
+         }
+      });
+   };
+   carousel();
+
+   $("nav .dropdown").hover(
+      function () {
+         var $this = $(this);
+         // 	 timer;
+         // clearTimeout(timer);
+         $this.addClass("show");
+         $this.find("> a").attr("aria-expanded", true);
+         // $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
+         $this.find(".dropdown-menu").addClass("show");
+      },
+      function () {
+         var $this = $(this);
+         // timer;
+         // timer = setTimeout(function(){
+         $this.removeClass("show");
+         $this.find("> a").attr("aria-expanded", false);
+         // $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
+         $this.find(".dropdown-menu").removeClass("show");
+         // }, 100);
+      }
+   );
+
+   $("#dropdown04").on("show.bs.dropdown", function () {
+      console.log("show");
+   });
+
+   // scroll
+   var scrollWindow = function () {
+      $(window).scroll(function () {
+         var $w = $(this),
+            st = $w.scrollTop(),
+            navbar = $(".ftco_navbar"),
+            sd = $(".js-scroll-wrap");
+
+         if (st > 150) {
+            if (!navbar.hasClass("scrolled")) {
+               navbar.addClass("scrolled");
+            }
+         }
+         if (st < 150) {
+            if (navbar.hasClass("scrolled")) {
+               navbar.removeClass("scrolled sleep");
+            }
+         }
+         if (st > 350) {
+            if (!navbar.hasClass("awake")) {
+               navbar.addClass("awake");
+            }
+
+            if (sd.length > 0) {
+               sd.addClass("sleep");
+            }
+         }
+         if (st < 350) {
+            if (navbar.hasClass("awake")) {
+               navbar.removeClass("awake");
+               navbar.addClass("sleep");
+            }
+            if (sd.length > 0) {
+               sd.removeClass("sleep");
+            }
+         }
+      });
+   };
+   scrollWindow();
+
+   var isMobile = {
+      Android: function () {
+         return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function () {
+         return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function () {
+         return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function () {
+         return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function () {
+         return navigator.userAgent.match(/IEMobile/i);
+      },
+      any: function () {
+         return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+      }
+   };
+
+   var counter = function () {
+      $("#section-counter").waypoint(
+         function (direction) {
+            if (direction === "down" && !$(this.element).hasClass("ftco-animated")) {
+               var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(",");
+               $(".number").each(function () {
+                  var $this = $(this),
+                     num = $this.data("number");
+                  console.log(num);
+                  $this.animateNumber(
+                     {
+                        number: num,
+                        numberStep: comma_separator_number_step
+                     },
+                     7000
+                  );
+               });
+            }
+         },
+         { offset: "95%" }
+      );
+   };
+   counter();
+
+   //REMOVE BODY SCROLL WHEN MODAL OPEN
+   var $window = $(window),
+      $body = $("body"),
+      $modal = $(".modal"),
+      scrollDistance = 0;
+
+   $modal.on("show.bs.modal", function () {
+      // Get the scroll distance at the time the modal was opened
+      scrollDistance = $window.scrollTop();
+
+      // Pull the top of the body up by that amount
+      $body.css("top", scrollDistance * -1);
+   });
+   $modal.on("hidden.bs.modal", function () {
+      // Remove the negative top value on the body
+      $body.css("top", "");
+
+      // Set the window's scroll position back to what it was before the modal was opened
+      $window.scrollTop(scrollDistance);
+   });
+
+   //animation
+   var contentWayPoint = function () {
+      var i = 0;
+      $(".ftco-animate").waypoint(
+         function (direction) {
+            if (direction === "down" && !$(this.element).hasClass("ftco-animated")) {
+               i++;
+
+               $(this.element).addClass("item-animate");
+               setTimeout(function () {
+                  $("body .ftco-animate.item-animate").each(function (k) {
+                     var el = $(this);
+                     setTimeout(
+                        function () {
+                           var effect = el.data("animate-effect");
+                           if (effect === "fadeIn") {
+                              el.addClass("fadeIn ftco-animated");
+                           } else if (effect === "fadeInLeft") {
+                              el.addClass("fadeInLeft ftco-animated");
+                           } else if (effect === "fadeInRight") {
+                              el.addClass("fadeInRight ftco-animated");
+                           } else {
+                              el.addClass("fadeInUp ftco-animated");
+                           }
+                           el.removeClass("item-animate");
+                        },
+                        k * 50,
+                        "easeInOutExpo"
+                     );
+                  });
+               }, 100);
+            }
+         },
+         { offset: "95%" }
+      );
+   };
+   contentWayPoint();
+
+   // navigation
+   var OnePageNav = function () {
+      $(".smoothscroll[href^='#'], #ftco-nav ul li a[href^='#']").on("click", function (e) {
+         e.preventDefault();
+
+         var hash = this.hash,
+            navToggler = $(".navbar-toggler");
+         $("html, body").animate(
+            {
+               scrollTop: $(hash).offset().top
+            },
+            700,
+            "easeInOutExpo",
+            function () {
+               window.location.hash = hash;
+            }
+         );
+
+         if (navToggler.is(":visible")) {
+            navToggler.click();
+         }
+      });
+      $("body").on("activate.bs.scrollspy", function () {
+         console.log("nice");
+      });
+   };
+   OnePageNav();
+
+   //view more
+   $("#toggle-vm").click(function () {
+      var elem = $("#toggle-vm").text();
+      var n = $('#categories-none');
+      if (elem == "View More") {
+         //Stuff to do when btn is in the read more state
+         $("#toggle-vm").text("View Less");
+         $("#product-dp-none, #categories-none").slideDown();
+      } else {
+         //Stuff to do when btn is in the read less state
+         $("#toggle-vm").text("View More");
+         $("#product-dp-none, #categories-none").slideUp();
+      }
+   });
+
+   //back to top
+   $(window).scroll(function () {
+
+      let position = $(this).scrollTop();
+
+      if (position >= 2600) {
+         $('#back-to-top').addClass('js-scroll-top');
+      }
+      else {
+         $('#back-to-top').removeClass('js-scroll-top');
+
+      }
+   })
+
+   // magnific popup
+   $(".image-popup").magnificPopup({
+      type: "image",
+      closeOnContentClick: true,
+      closeBtnInside: false,
+      fixedContentPos: true,
+      mainClass: "mfp-no-margins mfp-with-zoom", // class to remove default margin from left and right side
+      gallery: {
+         enabled: true,
+         navigateByImgClick: true,
+         preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+      },
+      image: {
+         verticalFit: true
+      },
+      zoom: {
+         enabled: true,
+         duration: 300 // don't foget to change the duration also in CSS
+      }
+   });
+
+   // gallery img popup
+   $(".box-img-popup").magnificPopup({
+      type: "image"
+   });
+
+   $(".popup-youtube, .popup-vimeo, .popup-gmaps").magnificPopup({
+      disableOn: 700,
+      type: "iframe",
+      mainClass: "mfp-fade",
+      removalDelay: 160,
+      preloader: false,
+
+      fixedContentPos: false
+   });
+
+   $(".checkin_date, .checkout_date").datepicker({
+      format: "m/d/yyyy",
+      autoclose: true
+   });
+
+   //GOOGLE MAP API
+   // var map;
+   // function initMap() {
+   //   map = new google.maps.Map(document.getElementById('map'), {
+   //     center: { lat: 40.4091, lng: 49.8648 },
+   //     zoom: 15
+   //   });
+   //   var marker = new google.maps.Marker({
+   //     position: { lat: 40.4091, lng: 49.8648 },
+   //     map: map,
+   //     title: 'Baku, Narimanov'
+   //   });
+   // }
+
+   //about- yt bg video
+   // The plugin works only if used under a web server. It doesn’t work if you run the HTML page as file (file://…).
+   // https://github.com/pupunzi/jquery.mb.YTPlayer/wiki
+   var bgVideo = function () {
+      $(".player").mb_YTPlayer();
+   };
+   bgVideo();
+
+   //magnifying glass efect
+   $("#exzoom").exzoom();
 
 })(jQuery);
+
+//product single- search input
+const category = document.querySelectorAll(".categories li");
+const search = document.querySelector(".sidebar-box__search");
+const btn = document.querySelector('.btn-sidebar');
+
+const filterFullNames = term => {
+   Array.from(category)
+      .filter(category => !category.textContent.toLowerCase().includes(term))
+      .forEach(category => category.classList.add("is-filtered"));
+   console.log(category);
+
+   Array.from(category)
+      .filter(category => category.textContent.toLowerCase().includes(term))
+      .forEach(category => category.classList.remove("is-filtered"));
+};
+
+search.addEventListener("keyup", () => {
+   const term = search.value.trim().toLowerCase();
+   filterFullNames(term);
+});

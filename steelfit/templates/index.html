@@ -1,99 +1,376 @@
 {% load static %}
-<!DOCTYPE HTML>
-<!--
-	Steelfit enigineering Co
-	By Dwij Makvana, Het Shah
--->
-<html>
-	<head>
-		<title>Steelfit Engineering Co.</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
 
-									<!-- Header -->
-									{% include "header.html" %}
+<head>
+	<title>SteelFit</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Steelfit engineering">
+	<meta name="author" content="Dwij Makvana">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Who makes perfect ends?<br /></h1>
-											<p>Experience</p>
-										</header>
-										<p>Our organisation, "STEELFIT ENGINEERING CO," was founded in Ahmedabad in 1983.
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/open-iconic-bootstrap.min.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/animate.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/owl.theme.default.min.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/aos.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/jquery.exzoom.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/ionicons.min.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/bootstrap-datepicker.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/jquery.timepicker.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/flaticon.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/icomoon.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/style.css' %}">
+</head>
 
-Known for producing and supplying a variety of Dished ends, Pipe Caps, Concentric & Eccentric Tori-cone, Fabricated Expansion Bellows, Coil Bending, and Swage Connection in all types of C.S. and S.S., Alloy steel, Aluminum Material of Construction in accordance with Clients drawing, Specification, and Code, our company is a reputable organisation.</p>
-										<ul class="actions">
-											<li><a href="{% url 'generic' %}" class="button big">Learn More</a></li>
-										</ul>
+<body>
+	<nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light position-absolute w-100" id="ftco-navbar top">
+		<div class="container">
+			<a href="{% url 'index' %}" class="navbar-brand text-light"><img src="{% static 'images/logo.png' %}" style="width: 300px"></a>
+		<!--	<img src="{% static 'images/Steelfit_Engineering_Co.-removebg-preview.png" class="logo-nav" href="index.html"> -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> abc
+			</button>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item cta"><a href="{% url 'index' %}" class="nav-link text-light">Home</a></li>
+					<li class="nav-item"><a href="about.hhtml" class="nav-link text-light">About</a></li>
+					<li class="nav-item"><a href="{% url 'gallery' %}" class="nav-link text-light">Gallery</a></li>
+					<li class="nav-item"><a href="product.html" class="nav-link text-light">Products</a></li>
+					<li class="nav-item"><a href="infrastructure.html" class="nav-link text-light">Infrastructure</a></li>
+					<li class="nav-item"><a href="certificates.html" class="nav-link text-light">Quality</a></li>
+					<li class="nav-item"><a href="clients.html" class="nav-link text-light">Our Clients</a></li>
+					<li class="nav-item"><a href="contact.html" class="nav-link text-light">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<!-- END nav -->
+	<div class="hero">
+		<section class="home-slider owl-carousel">
+			<div class="slider-item" style="background-image:url(/static/images/slider1.jpg);">
+				<div class="container">
+					<div class="row no-gutters slider-text align-items-center">
+						<div class="col-md-10 ftco-animate">
+							<div class="text mb-5 pb-5">
+								<div class="h1">
+									<div class="ht"><span class="w">W</span>hat makes perfect ends?</div>
+									<div class="ht" class="tlt">
 									</div>
-									<span class="image object">
-										<img src="{% static 'images/img11n.jpg' %}" alt="" />
-									</span>
-								</section>
-
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Perspective</h2>
-									</header>
-									<div class="features">
-										<article>
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>Vision</h3>
-												<p align="justify">We at STEELFIT ENGINEERING CO very strongly believe in working effectively and efficiently to meet all of our clients' expectations when providing a product, which is actually extremely crucial. The primary goal of the business is to provide our valued customers with cutting-edge solutions in a significant method.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-rocket"></span>
-											<div class="content">
-												<h3>Mission</h3>
-												<p align="justify">"Our mission is to comprehend customer needs and provide prompt deliveries of high-quality, tested products at the most reasonable prices. We have been able to differentiate our products in the pertinent industry thanks to the high quality of our products and client pleasure.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-signal"></span>
-											<div class="content">
-												<h3>R & D</h3>
-												<p align="justify">Steelfit Engineering Company places a strong emphasis on quality, research and development, and adherence to the exacting quality standards set out by international and Indian standards. We routinely evaluate the quality and effectiveness of our products, and we put new ideas into practise to improve both.
-We also continually increase the machine's capacity and install cutting-edge equipment to produce goods of high quality.</p>
-											</div>
-										</article>
-									</div>
-								</section>
-
+								</div>
+								<h1>Experience</h1>
+							</div>
 						</div>
 					</div>
-
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-							<!-- Menu -->
-							{% include "navbar.html" %}
-
-						</div>
-					</div>
-
+				</div>
 			</div>
 
-		<!-- Scripts -->
-		{% include "scripts.html" %}
-		<div id="chatbot">
-			{% include "popup.html" %}
+			<div class="slider-item"  style="background-image:url(/static/images/slider2.jpg);">
+				<div class="container">
+					<div class="row no-gutters slider-text align-items-center">
+						<div class="col-md-10 ftco-animate">
+							<div class="text mb-5 pb-5">
+								<div class="h1">
+									<div class="h1 ht"><span class="w">W</span>hat makes perfect end?</div>
+									<div class="h1 ht" class="tlt">
+									</div>
+								</div>
+								<h1>Experience</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="slider-item" style="background-image:url(/static/images/gallery3.jpg);">
+				<div class="container">
+					<div class="row no-gutters slider-text align-items-center">
+						<div class="col-md-10 ftco-animate">
+							<div class="text mb-5 pb-5">
+								<div class="h1">
+									<div class="h1 ht"><span class="w">W</span>hat makes perfect end?</div>
+									<div class="h1 ht" class="tlt">
+									</div>
+								</div>
+								<h1>Experience</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+	</div>
+
+
+
+	<!-- Perspective  -->
+	<section id="product" class="ftco-section ftco-menu w-100" style="background-image:url(images/);">
+		<div class="container">
+			<div class="row no-gutters justify-content-center align-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<!--	<span class="subheading"></span>  -->
+					<h2 class="mb-4 text-capitalize">What We do...</h2>
+					<p align="justify">Our organisation, "STEELFIT ENGINEERING CO," was founded in Ahmedabad in 1983.
+
+						Known for producing and supplying a variety of Dished ends, Pipe Caps, Concentric & Eccentric
+						Tori-cone, Fabricated Expansion Bellows, Coil Bending, and Swage Connection in all types of C.S.
+						and S.S., Alloy steel, Aluminum Material of Construction in accordance with Clients drawing,
+						Specification, and Code, our company is a reputable organisation.</p>
+
+				</div>
+			</div>
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<!--	<span class="subheading">Watch World</span>  -->
+					<h2>Our Perspective</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="pricing-entry d-flex ftco-animate">
+						<div class="img order-md-last" style="background-image: url(/static/images/vision.jpg);"></div>
+						<div class="desc pr-3 text-md-right">
+							<div class="d-md-flex text align-items-center">
+								<h3 class="order-md-last heading-left"><span>Vision</span></h3>
+								<!--	<span class="price price-left">$20.00</span> -->
+							</div>
+							<div class="d-block desc__text">
+								<p align="justify">We at STEELFIT ENGINEERING CO very strongly believe in working
+									effectively and efficiently to meet all of our clients' expectations when providing
+									a product, which is actually extremely crucial. The primary goal of the business is
+									to provide our valued customers with cutting-edge solutions in a significant method.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="pricing-entry d-flex ftco-animate">
+						<div class="img order-md-last" style="background-image: url(/static/images/mission.jpg);"></div>
+						<div class="desc pr-3 text-md-right">
+							<div class="d-md-flex text align-items-center">
+								<h3 class="order-md-last heading-left"><span>Mission</span></h3>
+								<!--	<span class="price price-left">$29.00</span> -->
+							</div>
+							<div class="d-block desc__text">
+								<p align="justify">Our mission is to comprehend customer needs and provide prompt
+									deliveries of high-quality, tested products at the most reasonable prices. We have
+									been able to differentiate our products in the pertinent industry thanks to the high
+									quality of our products and client pleasure.</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-6">
+					<div class="pricing-entry d-flex ftco-animate">
+						<div class="img" style="background-image: url(/static/images/R&D.jpg);"></div>
+						<div class="desc pl-3">
+							<div class="d-md-flex text align-items-center">
+								<h3><span>Research & Development</span></h3>
+								<!--	<span class="price">$20.00</span> -->
+							</div>
+							<div class="d-block desc__text">
+								<p align="justify">Steelfit Engineering Company places a strong emphasis on quality,
+									research and development, and adherence to the exacting quality standards set out by
+									international and Indian standards. We routinely evaluate the quality and
+									effectiveness of our products, and we put new ideas into practise to improve both.
+									We also continually increase the machine's capacity and install cutting-edge
+									equipment to produce goods of high quality.</p>
+							</div>
+						</div>
+					</div>
+	</section>
+	<!-- END PERSPECTIVE -->
+
+	<!-- Product  -->
+	<section>
+		<div class="text-center">
+			<h2 class="font-weight-bold"> <a href="index.html">Our Services </a></h2>
+			<p style="color: #FFFFFF">Explore our comprehensive range of services designed to meet your needs and exceed
+				your expectations.</p>
+		</div>
+		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
+						<div class="p-2">
+				<div class="card card-hover" style="width: 18rem; height: 25rem; border-radius: 10px 10px 0px 0px;">
+					<img src="{% static 'images/12.jpg' %}" class="card-img-top my-auto" alt="...">
+					<div class="overlay"></div>
+					<div class="text-center my-auto card-content">
+						<a href="dishend.html"><button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
+					</div>
+				</div>
+				<h4 class="bg-dark text-center text-light m-0 py-2" style="border-radius: 0px 0px 10px 10px;">Dish-end</h4>
+			</div>
+			<div class="p-2">
+				<div class="card card-hover" style="width: 18rem; height: 25rem; border-radius: 10px 10px 0px 0px;">
+					<img src="{% static 'images/tori.png' %}" class="card-img-top my-auto" alt="...">
+					<div class="overlay"></div>
+					<div class="text-center my-auto card-content">
+						<a href="cones.html"><button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
+					</div>
+				</div>
+				<h4 class="bg-dark text-center text-light m-0 py-2" style="border-radius: 0px 0px 10px 10px;">Cones / Tori-Cones</h4>
+			</div>
+			<div class="p-2">
+				<div class="card card-hover" style="width: 18rem; height: 25rem; border-radius: 10px 10px 0px 0px;">
+					<img src="{% static 'images/p_16.png' %}" class="card-img-top my-auto" alt="...">
+					<div class="overlay"></div>
+					<div class="text-center my-auto card-content">
+						<a href="pipecap.html"> <button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
+					</div>
+				</div>
+				<h4 class="bg-dark text-center text-light m-0 py-2" style="border-radius: 0px 0px 10px 10px;">Pipe-caps</h4>
+			</div>
+			<div class="p-2 col-12 text-center" >
+				<a href="product.html"><button onclick="location.href = 'product.html'; id ="viewmore" class="btn btn-lg bg-dark col-6 col-md-2  mx-auto text-light"  style="border-radius:10px;">View More</button></a>
+			</div>
 		</div>
 		
-	<!-- <script src="{% static 'script.js' %}" type="text/javascript"></script> -->
-	</body>
+
+	</section>
+
+
+
+	<!-- End Products -->
+
+
+	<!--  IMAGES  -->
+	<section class="disp-images">
+		<div class="container-fluid">
+			<div class="row no-gutters justify-content-center pb-5">
+				<div class="col-md-7 text-center heading-section ftco-animate">
+					<span class="subheading">Photos</span>
+					<h2><span>Images</span></h2>
+				</div>
+			</div>
+			<div class="row no-gutters">
+				<div class="col-sm-12 col-md ftco-animate">
+					<a href="{% static 'images/product2.jpg' %}" class="insta-img image-popup"
+						style="background-image: url(/static/images/product2.jpg);">
+						<div class="icon d-flex justify-content-center">
+							<span class="icon-zoom_in align-self-center"></span>
+						</div>
+					</a>
+				</div>
+				<div class="col-sm-12 col-md ftco-animate">
+					<a href="{% static 'images/product1.jpg' %}" class="insta-img image-popup"
+						style="background-image: url(/static/images/product1.jpg);">
+						<div class="icon d-flex justify-content-center">
+							<span class="icon-zoom_in align-self-center"></span>
+						</div>
+					</a>
+				</div>
+				<div class="col-sm-12 col-md ftco-animate">
+					<a href="{% static 'images/gallery1.jpg' %}" class="insta-img image-popup"
+						style="background-image: url(/static/images/gallery1.jpg);">
+						<div class="icon d-flex justify-content-center">
+							<span class="icon-zoom_in align-self-center"></span>
+						</div>
+					</a>
+				</div>
+				<div class="col-sm-12 col-md ftco-animate">
+					<a href="{% static 'images/gallery2.jpg' %}" class="insta-img image-popup"
+						style="background-image: url(/static/images/gallery2.jpg);">
+						<div class="icon d-flex justify-content-center">
+							<span class="icon-zoom_in align-self-center"></span>
+						</div>
+					</a>
+				</div>
+				<div class="col-sm-12 col-md ftco-animate">
+					<a href="{% static 'images/12.jpg' %}" class="insta-img image-popup" style="background-image: url(/static/images/12.jpg);">
+						<div class="icon d-flex justify-content-center">
+							<span class="icon-zoom_in align-self-center"></span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end INSTAGRAM IMAGES  -->
+
+	<footer class="ftco-footer ftco-bg-dark ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Steelfit Engineering </h2>
+						<p align="justify">At STEELFIT ENGINEERING CO, we are committed to delivering high-quality
+							products and services that meet our client's unique needs. With our expertise in
+							manufacturing and supplying various industrial products, we aim to be a reliable partner to
+							our clients in achieving their business goals. </p>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Have a Questions?</h2>
+						<div class="block-23 mb-3">
+							<ul class="ftco-footer__contact">
+								<li><span class="icon icon-map-marker"></span><span class="text">Ahmedabad,
+										Gujarat</span>
+								</li>
+								<li><span class="icon icon-phone"></span><span class="text">+91 - 98250 42746</span>
+								</li>
+								<li><span class="icon icon-envelope"></span><span class="text">steelfit@gmail.com</span>
+								</li>
+							</ul>
+							<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-0">
+								<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+								<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> Created by - <a
+							href="https://www.linkedin.com/in/dwij-makvana-a312891b4/"><u>Dwij Makvana</u></a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<a href="#top" id="back-to-top"><i class="icon-long-arrow-up"></i></a>
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#1fb6d1" />
+		</svg></div>
+
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery-migrate-3.0.1.min.js' %}"></script>
+		<script src="{% static 'assets/js/popper.min.js' %}"></script>
+		<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.easing.1.3.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.stellar.min.js' %}"></script>
+		<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+		<script src="{% static 'assets/js/aos.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.animateNumber.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.mb.YTPlayer.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.exzoom.js' %}"></script>
+		<script src="{% static 'assets/js/bootstrap-datepicker.js' %}"></script>
+		<!-- // <script src="{% static 'assets/js/jquery.timepicker.min.js' %}"></script> -->
+		<!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js' %}"></script> -->
+		<script src="{% static 'assets/js/parallax.min.js' %}"></script>
+		<script src="{% static 'assets/js/scrollax.min.js' %}"></script>
+		<!-- <script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+		<script src="{% static 'assets/js/google-map.js' %}"></script> -->
+		<script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
 </html>

@@ -4,8 +4,8 @@ from django.shortcuts import render
 def index(request):
     return render(request, "index.html")
 
-def elements(request):
-    return render(request, "elements.html")
+def gallery(request):
+    return render(request, "gallery.html")
 
 def dishend(request):
     return render(request, "Dishend.html")
