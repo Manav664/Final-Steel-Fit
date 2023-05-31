@@ -40,13 +40,13 @@
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item cta"><a href="{% url 'index' %}" class="nav-link text-light">Home</a></li>
-					<li class="nav-item"><a href="about.hhtml" class="nav-link text-light">About</a></li>
+					<li class="nav-item"><a href="{% url 'about' %}" class="nav-link text-light">About</a></li>
 					<li class="nav-item"><a href="{% url 'gallery' %}" class="nav-link text-light">Gallery</a></li>
-					<li class="nav-item"><a href="product.html" class="nav-link text-light">Products</a></li>
-					<li class="nav-item"><a href="infrastructure.html" class="nav-link text-light">Infrastructure</a></li>
-					<li class="nav-item"><a href="certificates.html" class="nav-link text-light">Quality</a></li>
-					<li class="nav-item"><a href="clients.html" class="nav-link text-light">Our Clients</a></li>
-					<li class="nav-item"><a href="contact.html" class="nav-link text-light">Contact</a></li>
+					<li class="nav-item"><a href="{% url 'product' %}" class="nav-link text-light">Products</a></li>
+					<li class="nav-item"><a href="{% url 'infrastructure' %}" class="nav-link text-light">Infrastructure</a></li>
+					<li class="nav-item"><a href="{% url 'certificates' %}" class="nav-link text-light">Quality</a></li>
+					<li class="nav-item"><a href="{% url 'clients' %}" class="nav-link text-light">Our Clients</a></li>
+					<li class="nav-item"><a href="{% url 'contact' %}" class="nav-link text-light">Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -193,7 +193,7 @@
 	<!-- Product  -->
 	<section>
 		<div class="text-center">
-			<h2 class="font-weight-bold"> <a href="index.html">Our Services </a></h2>
+			<h2 class="font-weight-bold"> <a href="{% url 'index' %}">Our Services </a></h2>
 			<p style="color: #FFFFFF">Explore our comprehensive range of services designed to meet your needs and exceed
 				your expectations.</p>
 		</div>
@@ -203,7 +203,7 @@
 					<img src="{% static 'images/12.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="overlay"></div>
 					<div class="text-center my-auto card-content">
-						<a href="dishend.html"><button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
+						<a href="{% url 'dishend' %}"><button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
 					</div>
 				</div>
 				<h4 class="bg-dark text-center text-light m-0 py-2" style="border-radius: 0px 0px 10px 10px;">Dish-end</h4>
@@ -213,7 +213,7 @@
 					<img src="{% static 'images/tori.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="overlay"></div>
 					<div class="text-center my-auto card-content">
-						<a href="cones.html"><button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
+						<a href="{% url 'cones' %}"><button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
 					</div>
 				</div>
 				<h4 class="bg-dark text-center text-light m-0 py-2" style="border-radius: 0px 0px 10px 10px;">Cones / Tori-Cones</h4>
@@ -223,13 +223,13 @@
 					<img src="{% static 'images/p_16.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="overlay"></div>
 					<div class="text-center my-auto card-content">
-						<a href="pipecap.html"> <button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
+						<a href="{% url 'pipecap' %}"> <button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
 					</div>
 				</div>
 				<h4 class="bg-dark text-center text-light m-0 py-2" style="border-radius: 0px 0px 10px 10px;">Pipe-caps</h4>
 			</div>
 			<div class="p-2 col-12 text-center" >
-				<a href="product.html"><button onclick="location.href = 'product.html'; id ="viewmore" class="btn btn-lg bg-dark col-6 col-md-2  mx-auto text-light"  style="border-radius:10px;">View More</button></a>
+				<a href="{% url 'product' %}"><button onclick="location.href = 'product.html'; id ="viewmore" class="btn btn-lg bg-dark col-6 col-md-2  mx-auto text-light"  style="border-radius:10px;">View More</button></a>
 			</div>
 		</div>
 		

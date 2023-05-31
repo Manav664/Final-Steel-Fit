@@ -7,35 +7,32 @@ def index(request):
 def gallery(request):
     return render(request, "gallery.html")
 
+def about(request):
+    return render(request, "about.html")
+
+def product(request):
+    return render(request, "product.html")
+
+def infrastructure(request):
+    return render(request, "infrastructure.html")
+
+def certificates(request):
+    return render(request, "certificates.html")
+
+def clients(request):
+    return render(request, "clients.html")
+
+def contact(request):
+    return render(request, "contact.html")
+
 def dishend(request):
-    return render(request, "Dishend.html")
+    return render(request, "dishend.html")
 
-def generic(request):
-    return render(request, "generic.html")
+def cones(request):
+    return render(request, "cones.html")
 
-def hemi(request):
-    return render(request, "Hemi spherical.html")
-
-def infra(request):
-    return render(request, "Infrastructure.html")
-
-def inspection(request):
-    return render(request, "Inspection.html")
-
-def photogallery(request):
-    return render(request, "photogallery.html")
-
-def pipecaps(request):
-    return render(request, "Pipecaps.html")
-
-def quality(request):
-    return render(request, "Quality.html")
-
-def tori(request):
-    return render(request, "Tori.html")
-
-def ourclients(request):
-    return render(request, "OurClients.html")
+def pipecap(request):
+    return render(request, "pipecap.html")
 
 def chatbot(request):
     return render(request, "chatbot.html")
