@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,19 +11,19 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<link rel="stylesheet" href="css/aos.css">
-	<link rel="stylesheet" href="css/jquery.exzoom.css">
-	<link rel="stylesheet" href="css/ionicons.min.css">
-	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
-	<link rel="stylesheet" href="css/jquery.timepicker.css">
-	<link rel="stylesheet" href="css/flaticon.css">
-	<link rel="stylesheet" href="css/icomoon.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/open-iconic-bootstrap.min.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/animate.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/owl.theme.default.min.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/aos.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/jquery.exzoom.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/ionicons.min.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/bootstrap-datepicker.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/jquery.timepicker.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/flaticon.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/icomoon.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/style.css' %}">
 </head>
 
 <body>
@@ -36,20 +37,20 @@
 			</button>
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="index.html" class="nav-link text-light">Home</a></li>
-					<li class="nav-item"><a href="about.html" class="nav-link text-light">About</a></li>
-					<li class="nav-item"><a href="gallery.html" class="nav-link text-light">Gallery</a></li>
-					<li class="nav-item"><a href="product.html" class="nav-link text-light">Products</a></li>
-					<li class="nav-item"><a href="infrastructure.html" class="nav-link text-light">Infrastructure</a></li>
-					<li class="nav-item"><a href="certificates.html" class="nav-link text-light">Quality</a></li>
-					<li class="nav-item cta"><a href="clients.html" class="nav-link text-light">Our Clients</a></li>
-					<li class="nav-item"><a href="contact.html" class="nav-link text-light">Contact</a></li>
+					<li class="nav-item"><a href="{% url 'index' %}" class="nav-link text-light">Home</a></li>
+					<li class="nav-item"><a href="{% url 'about' %}" class="nav-link text-light">About</a></li>
+					<li class="nav-item"><a href="{% url 'gallery' %}" class="nav-link text-light">Gallery</a></li>
+					<li class="nav-item"><a href="{% url 'product' %}" class="nav-link text-light">Products</a></li>
+					<li class="nav-item"><a href="{% url 'infrastructure' %}" class="nav-link text-light">Infrastructure</a></li>
+					<li class="nav-item"><a href="{% url 'certificates' %}" class="nav-link text-light">Quality</a></li>
+					<li class="nav-item cta"><a href="{% url 'clients' %}" class="nav-link text-light">Our Clients</a></li>
+					<li class="nav-item"><a href="{% url 'contact' %}" class="nav-link text-light">Contact</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<div class="hero-wrap" style="background-image: url('img/bkg.jpg');">
+	<div class="hero-wrap" style="background-image: url('/static/images/bkg.jpg');">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row no-gutters slider-text d-flex align-items-end justify-content-center">
@@ -73,58 +74,28 @@
 		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/11.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/11.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/Air%20oil.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/Air%20oil.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/logo-1.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/logo-1.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/anst.jpg" class="card-img-top my-auto" alt="...">
-					<div class="text-center my-auto card-content">
-					</div>
-				</div>
-			</div>
-			</div>
-		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
-			<div class="p-2">
-				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/BHEL.jpg" class="card-img-top my-auto" alt="...">
-					<div class="text-center my-auto card-content">
-					</div>
-				</div>
-			</div>
-			<div class="p-2">
-				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/BOMAFA.jpg" class="card-img-top my-auto" alt="...">
-					<div class="text-center my-auto card-content">
-					</div>
-				</div>
-			</div>
-			<div class="p-2">
-				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/Cdoctor.jpg" class="card-img-top my-auto" alt="...">
-					<div class="text-center my-auto card-content">
-					</div>
-				</div>
-			</div>
-			<div class="p-2">
-				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/CHEMPROCESS%20.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/anst.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
@@ -133,58 +104,28 @@
 		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/cryogas.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/BHEL.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/deep.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/BOMAFA.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/degania.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/Cdoctor.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/Dodsal.jpg" class="card-img-top my-auto" alt="...">
-					<div class="text-center my-auto card-content">
-					</div>
-				</div>
-			</div>
-			</div>
-		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
-			<div class="p-2">
-				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/DR.jpg" class="card-img-top my-auto" alt="...">
-					<div class="text-center my-auto card-content">
-					</div>
-				</div>
-			</div>
-			<div class="p-2">
-				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/ESSAR.jpg" class="card-img-top my-auto" alt="...">
-					<div class="text-center my-auto card-content">
-					</div>
-				</div>
-			</div>
-			<div class="p-2">
-				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/GAMMON.jpg" class="card-img-top my-auto" alt="...">
-					<div class="text-center my-auto card-content">
-					</div>
-				</div>
-			</div>
-			<div class="p-2">
-				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/GEMINI.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/CHEMPROCESS%20.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
@@ -193,28 +134,28 @@
 		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/GMM.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/cryogas.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/Gujarat%20oto.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/deep.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/HDO.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/degania.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/ICE%20MAKE.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/Dodsal.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
@@ -223,28 +164,88 @@
 		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/images.jfif" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/DR.jpg' %}" class="card-img-top my-auto" alt="...">
+					<div class="text-center my-auto card-content">
+					</div>
+				</div>
+			</div>
+			<div class="p-2">
+				<div class="card card-hover" style="width: 18rem; height: 18rem;">
+					<img src="{% static 'images/clients/ESSAR.jpg' %}" class="card-img-top my-auto" alt="...">
+					<div class="text-center my-auto card-content">
+					</div>
+				</div>
+			</div>
+			<div class="p-2">
+				<div class="card card-hover" style="width: 18rem; height: 18rem;">
+					<img src="{% static 'images/clients/GAMMON.jpg' %}" class="card-img-top my-auto" alt="...">
+					<div class="text-center my-auto card-content">
+					</div>
+				</div>
+			</div>
+			<div class="p-2">
+				<div class="card card-hover" style="width: 18rem; height: 18rem;">
+					<img src="{% static 'images/clients/GEMINI.jpg' %}" class="card-img-top my-auto" alt="...">
+					<div class="text-center my-auto card-content">
+					</div>
+				</div>
+			</div>
+			</div>
+		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
+			<div class="p-2">
+				<div class="card card-hover" style="width: 18rem; height: 18rem;">
+					<img src="{% static 'images/clients/GMM.jpg' %}" class="card-img-top my-auto" alt="...">
+					<div class="text-center my-auto card-content">
+					</div>
+				</div>
+			</div>
+			<div class="p-2">
+				<div class="card card-hover" style="width: 18rem; height: 18rem;">
+					<img src="{% static 'images/clients/Gujarat%20oto.png' %}" class="card-img-top my-auto" alt="...">
+					<div class="text-center my-auto card-content">
+					</div>
+				</div>
+			</div>
+			<div class="p-2">
+				<div class="card card-hover" style="width: 18rem; height: 18rem;">
+					<img src="{% static 'images/clients/HDO.jpg' %}" class="card-img-top my-auto" alt="...">
+					<div class="text-center my-auto card-content">
+					</div>
+				</div>
+			</div>
+			<div class="p-2">
+				<div class="card card-hover" style="width: 18rem; height: 18rem;">
+					<img src="{% static 'images/clients/ICE%20MAKE.jpg' %}" class="card-img-top my-auto" alt="...">
+					<div class="text-center my-auto card-content">
+					</div>
+				</div>
+			</div>
+			</div>
+		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
+			<div class="p-2">
+				<div class="card card-hover" style="width: 18rem; height: 18rem;">
+					<img src="{% static 'images/clients/images.jfif' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 		<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/IDMC.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/IDMC.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/Inox.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/Inox.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/IOCL.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/IOCL.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
@@ -254,28 +255,28 @@
 		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
 		<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/GHCL.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/GHCL.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/download.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/download.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
               <div class="p-2">
 				<div class="card card-hover" style="width: 20rem; height: 18rem;">
-					<img src="img/clients/Cristopia.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/Cristopia.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
               </div>
             <div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/BAL%20KRISHNA%20.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/BAL%20KRISHNA%20.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
@@ -284,28 +285,28 @@
 		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
 		<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/IPR.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/IPR.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/ISGEC.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/ISGEC.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
               <div class="p-2">
 				<div class="card card-hover" style="width: 20rem; height: 18rem;">
-					<img src="img/clients/isro_logo.png.gif" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/isro_logo.png.gif' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
               </div>
             <div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/Joginder.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/Joginder.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
@@ -314,28 +315,28 @@
 		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
 		<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/LNT.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/LNT.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/LOYAL%20EQUIPMENT.jfif" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/LOYAL%20EQUIPMENT.jfif' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
               <div class="p-2">
 				<div class="card card-hover" style="width: 20rem; height: 18rem;">
-					<img src="img/clients/madhulisic.jfif" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/madhulisic.jfif' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
               </div>
             <div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/Mazda.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/Mazda.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
@@ -344,28 +345,28 @@
 		<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
 		<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/MIcrotech%20.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/MIcrotech%20.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/microtech%20boilers%20private%20limited.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/microtech%20boilers%20private%20limited.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
               <div class="p-2">
 				<div class="card card-hover" style="width: 20rem; height: 18rem;">
-					<img src="img/clients/Oriental%20Manufacture.jfif" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/Oriental%20Manufacture.jfif' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
               </div>
             <div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/pastels.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/pastels.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
@@ -374,28 +375,28 @@
 <div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
 		<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/patels.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/patels.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/PHARMALAB.jfif" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/PHARMALAB.jfif' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
               <div class="p-2">
 				<div class="card card-hover" style="width: 20rem; height: 18rem;">
-					<img src="img/clients/PHARMATECH.jfif" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/PHARMATECH.jfif' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
               </div>
             <div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/PRAJ.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/PRAJ.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
@@ -404,28 +405,28 @@
 <div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
 		<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/Ratnamani.jfif" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/Ratnamani.jfif' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/SACHIN.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/SACHIN.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
               <div class="p-2">
 				<div class="card card-hover" style="width: 20rem; height: 18rem;">
-					<img src="img/clients/SWELORE%20ENGINEERING.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/SWELORE%20ENGINEERING.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
               </div>
             <div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/swiss%20glascoat%20equipments%20ltd.jfif" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/swiss%20glascoat%20equipments%20ltd.jfif' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
@@ -434,28 +435,28 @@
 			<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
 		<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/SWISS.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/SWISS.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/TAQANIAT%20AL%20ITQAN.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/TAQANIAT%20AL%20ITQAN.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
               <div class="p-2">
 				<div class="card card-hover" style="width: 20rem; height: 18rem;">
-					<img src="img/clients/TEchnip.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/TEchnip.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
               </div>
             <div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/TEMA%20INDIA.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/TEMA%20INDIA.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
@@ -464,28 +465,28 @@
 			<div class="d-flex container-fluid justify-content-center align-items-center flex-wrap">
 		<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/th7J3HXDWM.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/th7J3HXDWM.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/thermax%20ltd.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/thermax%20ltd.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
 			</div>
               <div class="p-2">
 				<div class="card card-hover" style="width: 20rem; height: 18rem;">
-					<img src="img/clients/VRV.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/VRV.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
               </div>
             <div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 18rem;">
-					<img src="img/clients/VTV.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/clients/VTV.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="text-center my-auto card-content">
 					</div>
 				</div>
@@ -546,28 +547,28 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
 				stroke="#1fb6d1" /></svg></div>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/jquery.stellar.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/aos.js"></script>
-	<script src="js/jquery.animateNumber.min.js"></script>
-	<script src="js/jquery.mb.YTPlayer.min.js"></script>
-	<script src="js/jquery.exzoom.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
-	<!-- // <script src="js/jquery.timepicker.min.js"></script> -->
-	<!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> -->
-	<script src="js/parallax.min.js"></script>
-	<script src="js/scrollax.min.js"></script>
+	<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery-migrate-3.0.1.min.js' %}"></script>
+	<script src="{% static 'assets/js/popper.min.js' %}"></script>
+	<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.easing.1.3.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.stellar.min.js' %}"></script>
+	<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'assets/js/aos.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.animateNumber.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.mb.YTPlayer.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.exzoom.js' %}"></script>
+	<script src="{% static 'assets/js/bootstrap-datepicker.js' %}"></script>
+	<!-- // <script src="{% static 'assets/js/jquery.timepicker.min.js' %}"></script> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js' %}"></script> -->
+	<script src="{% static 'assets/js/parallax.min.js' %}"></script>
+	<script src="{% static 'assets/js/scrollax.min.js' %}"></script>
 	<!-- <script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="js/google-map.js"></script> -->
-	<script src="js/main.js"></script>
+	<script src="{% static 'assets/js/google-map.js' %}"></script> -->
+	<script src="{% static 'assets/js/main.js' %}"></script>
 </body>
 
 </html>
