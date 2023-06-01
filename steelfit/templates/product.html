@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,19 +11,19 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<link rel="stylesheet" href="css/aos.css">
-	<link rel="stylesheet" href="css/jquery.exzoom.css">
-	<link rel="stylesheet" href="css/ionicons.min.css">
-	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
-	<link rel="stylesheet" href="css/jquery.timepicker.css">
-	<link rel="stylesheet" href="css/flaticon.css">
-	<link rel="stylesheet" href="css/icomoon.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/open-iconic-bootstrap.min.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/animate.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/owl.theme.default.min.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/aos.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/jquery.exzoom.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/ionicons.min.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/bootstrap-datepicker.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/jquery.timepicker.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/flaticon.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/icomoon.css' %}">
+	<link rel="stylesheet"type="text/css" href="{% static 'assets/css/style.css' %}">
 </head>
 
 <body>
@@ -35,21 +36,21 @@
 			</button>
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="index.html" class="nav-link text-light">Home</a></li>
-					<li class="nav-item"><a href="about.html" class="nav-link text-light">About</a></li>
-					<li class="nav-item"><a href="gallery.html" class="nav-link text-light">Gallery</a></li>
-					<li class="nav-item cta"><a href="product.html" class="nav-link text-light">Products</a></li>
-					<li class="nav-item"><a href="infrastructure.html" class="nav-link text-light">Infrastructure</a></li>
-					<li class="nav-item"><a href="certificates.html" class="nav-link text-light">Quality</a></li>
-					<li class="nav-item"><a href="clients.html" class="nav-link text-light">Our Clients</a></li>
-					<li class="nav-item"><a href="contact.html" class="nav-link text-light">Contact</a></li>
+					<li class="nav-item"><a href="{% url 'index' %}" class="nav-link text-light">Home</a></li>
+					<li class="nav-item"><a href="{% url 'about' %}" class="nav-link text-light">About</a></li>
+					<li class="nav-item"><a href="{% url 'gallery' %}" class="nav-link text-light">Gallery</a></li>
+					<li class="nav-item cta"><a href="{% url 'product' %}" class="nav-link text-light">Products</a></li>
+					<li class="nav-item"><a href="{% url 'infrastructure' %}" class="nav-link text-light">Infrastructure</a></li>
+					<li class="nav-item"><a href="{% url 'certificates' %}" class="nav-link text-light">Quality</a></li>
+					<li class="nav-item"><a href="{% url 'clients' %}" class="nav-link text-light">Our Clients</a></li>
+					<li class="nav-item"><a href="{% url 'contact' %}" class="nav-link text-light">Contact</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
 	<!-- END nav -->
-	<div class="hero-wrap" style="background-image: url('img/slider1.jpg');">
+	<div class="hero-wrap" style="background-image: url('/static/images/slider1.jpg');">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row no-gutters slider-text d-flex align-items-end justify-content-center">
@@ -74,7 +75,7 @@
 		<div class="d-flex container justify-content-center align-items-center flex-wrap">
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 25rem; border-radius: 10px 10px 0px 0px;">
-					<img src="img/12.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/12.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="overlay"></div>
 					<div class="text-center my-auto card-content">
 						<a href="dishend.html"><button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
@@ -84,7 +85,7 @@
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 25rem; border-radius: 10px 10px 0px 0px;">
-					<img src="img/p_16.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/p_16.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="overlay"></div>
 					<div class="text-center my-auto card-content">
 					<a href="pipecap.html"><button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
@@ -94,7 +95,7 @@
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 25rem; border-radius: 10px 10px 0px 0px;">
-					<img src="img/tori.png" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/tori.png' %}" class="card-img-top my-auto" alt="...">
 					<div class="overlay"></div>
 					<div class="text-center my-auto card-content">
 						<a href="cones.html"><button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
@@ -104,7 +105,7 @@
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 25rem; border-radius: 10px 10px 0px 0px;">
-					<img src="img/gallery2.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/gallery2.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="overlay"></div>
 					<div class="text-center my-auto card-content">
 						<a href="bending.html"><button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
@@ -114,7 +115,7 @@
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 25rem; border-radius: 10px 10px 0px 0px;">
-					<img src="img/expb.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/expb.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="overlay"></div>
 					<div class="text-center my-auto card-content">
 						<a href="bellow.html"><button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
@@ -124,7 +125,7 @@
 			</div>
 			<div class="p-2">
 				<div class="card card-hover" style="width: 18rem; height: 25rem; border-radius: 10px 10px 0px 0px;">
-					<img src="img/product2.jpg" class="card-img-top my-auto" alt="...">
+					<img src="{% static 'images/product2.jpg' %}" class="card-img-top my-auto" alt="...">
 					<div class="overlay"></div>
 					<div class="text-center my-auto card-content">
 						<a href="swage%20connection.html"><button class="btn btn-md bg-dark w-50 mx-auto text-light">View Details</button></a>
@@ -187,28 +188,28 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
 				stroke="#1fb6d1" /></svg></div>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/jquery.stellar.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/aos.js"></script>
-	<script src="js/jquery.animateNumber.min.js"></script>
-	<script src="js/jquery.mb.YTPlayer.min.js"></script>
-	<script src="js/jquery.exzoom.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
-	<!-- // <script src="js/jquery.timepicker.min.js"></script> -->
-	<!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> -->
-	<script src="js/parallax.min.js"></script>
-	<script src="js/scrollax.min.js"></script>
-	<!-- <script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="js/google-map.js"></script> -->
-	<script src="js/main.js"></script>
+	<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery-migrate-3.0.1.min.js' %}"></script>
+	<script src="{% static 'assets/js/popper.min.js' %}"></script>
+	<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.easing.1.3.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.stellar.min.js' %}"></script>
+	<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'assets/js/aos.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.animateNumber.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.mb.YTPlayer.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.exzoom.js' %}"></script>
+	<script src="{% static 'assets/js/bootstrap-datepicker.js' %}"></script>
+	<!-- // <script src="{% static 'assets/js/jquery.timepicker.min.js' %}"></script> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js' %}"></script> -->
+	<script src="{% static 'assets/js/parallax.min.js' %}"></script>
+	<script src="{% static 'assets/js/scrollax.min.js' %}"></script>
+  <!-- <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static 'assets/js/google-map.js' %}"></script> -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
 
 </body>
 
